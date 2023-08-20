@@ -10,5 +10,6 @@ func _process(_delta):
 	$GridMovement.move(input_direction)
 
 func _on_grid_movement_collided(body):
+	print(body)
 	if body is CollectItem:
 		print(body.on_collect_item())

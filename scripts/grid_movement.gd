@@ -23,18 +23,26 @@ func move(direction: Vector2) -> void:
 		self.target_position = movement * Constants.TILE_SIZE
 		self.force_raycast_update() # Update the `target_position` immediately
 		
-		# Allow movement only if no collision in next tile
-		if !self.is_colliding():
-			collided_direction = Vector2.ZERO
-			moving_direction = movement
-			
-			var new_position = actor.global_position + (moving_direction * Constants.TILE_SIZE)
-			
-			var tween = create_tween()
-			tween.tween_property(actor, "position", new_position, speed).set_trans(Tween.TRANS_LINEAR)
-			tween.tween_callback(func(): moving_direction = Vector2.ZERO)
-		else:
-			if collided_direction != direction:
-				# Collide and emit signal only once
-				collided_direction = direction
-				collided.emit(self.get_collider())
+		var collider = self.get_collider()
+		
+		# Stop only when colliding with "wall"
+		if collider == null:
+			_execute_move(movement)
+		elif collider is CollisionObject2D:
+			if collider.collision_mask != 2:
+				_execute_move(movement)
+				
+				if collided_direction != direction:
+					# Collide and emit signal only once
+					collided_direction = direction
+					collided.emit(self.get_collider())
+
+func _execute_move(movement: Vector2) -> void:
+	collided_direction = Vector2.ZERO
+	moving_direction = movement
+	
+	var new_position = actor.global_position + (moving_direction * Constants.TILE_SIZE)
+	
+	var tween = create_tween()
+	tween.tween_property(actor, "position", new_position, speed).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(func(): moving_direction = Vector2.ZERO)
