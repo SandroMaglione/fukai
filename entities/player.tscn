@@ -18,8 +18,8 @@ animations = [{
 [node name="Player" type="Node2D"]
 script = ExtResource("1_gc0gy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_x48ov")
-
 [node name="GridMovement" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_c41b5")]
 actor = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x48ov")
