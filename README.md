@@ -243,3 +243,8 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [ ] Allow buying (show how much `Coins` it cost, click to get)
 - [ ] Store complete workstation `Inventory` (all `Resources`, `Coins`, `Weapons`, `Shields`, `Potions`)
 - [ ] Prepare `Inventory` to go into dungeon
+
+***
+
+## TODO
+- [ ] Allow short time between each player movement (not possible to keep button pressed and move indefinitely)

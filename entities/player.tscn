@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq1yxk0cy8e7f"]
+
+[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_0xasj"]
+[ext_resource type="Script" path="res://entities/player.gd" id="1_gc0gy"]
+[ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="3_c41b5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x48ov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0xasj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_gc0gy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x48ov")
+
+[node name="GridMovement" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_c41b5")]
+actor = NodePath("..")
