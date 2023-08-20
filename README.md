@@ -196,6 +196,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - More `Enemies` movements
   - Sprint N tiles
   - Attack from the distance
+  - Try to prevent the player from reaching the stairs (block the path)
 - More `Enemies` sizes (N tiles)
   - Bigger, more powerful, slower, cannot pass through some doors
 - Different dungeons
