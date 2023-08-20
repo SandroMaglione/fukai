@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://nfi2g7bwursi"]
+
+[ext_resource type="Script" path="res://entities/collect_item.gd" id="1_g5xop"]
+[ext_resource type="Texture2D" uid="uid://dchaq826q8xxd" path="res://assets/resources-tileset.png" id="1_gi4a6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaagj"]
+size = Vector2(8, 8)
+
+[node name="CollectItem" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_g5xop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gaagj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gi4a6")
+hframes = 3
