@@ -23,3 +23,5 @@ actor = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x48ov")
+
+[connection signal="collided" from="GridMovement" to="." method="_on_grid_movement_collided"]
