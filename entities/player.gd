@@ -15,3 +15,5 @@ func _on_grid_movement_collided(body):
 		body.on_collect_item()
 	elif body is Stairs:
 		body.complete_tier()
+	elif body is Coin:
+		body.collect_coin()

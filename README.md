@@ -219,10 +219,8 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] Player and `Enemies` movement (4 directions)
 - [x] Tilemap (walls and layers for `Enemies`, player, and collectibles)
 - [x] Allow completing the `Tier` when moving on top of end stairs
-- [ ] Store current `Tier`
-- [ ] `Tier`-specific `Inventory` system
-- [ ] Allow collecting `Resources` when nearby (do not move on top of it)
-- [ ] Allow getting coins when moving on top of them
+- [x] Allow collecting `Resources` when nearby (do not move on top of it)
+- [x] Allow getting coins when moving on top of them
 - [ ] `Enemy` shared properties
 - [ ] `Enemy` concrete instances (based on current `Tier`)
 - [ ] Allow attacking when something nearby
@@ -237,6 +235,8 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [ ] Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
 - [ ] Generate room concrete instance (based on current `Tier`)
 - [ ] Create dungeon (connect rooms concrete instances)
+- [ ] Store current `Tier`
+- [ ] `Tier`-specific `Inventory` system
 - [ ] `Resources` definition (shared properties, concrete instances)
 - [ ] `Weapons` definition
 - [ ] `Shields` definition
@@ -249,3 +249,4 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 
 ## TODO
 - [ ] Allow short time between each player movement (not possible to keep button pressed and move indefinitely)
+- [ ] `Resources`, `Coins`, and stairs have similar structure, worth refactoring from same model?

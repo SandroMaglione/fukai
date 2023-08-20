@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cex7v755m2vp5"]
+[gd_scene load_steps=9 format=3 uid="uid://cex7v755m2vp5"]
 
 [ext_resource type="PackedScene" uid="uid://dq1yxk0cy8e7f" path="res://entities/player.tscn" id="1_xccqg"]
 [ext_resource type="PackedScene" uid="uid://bg5vrxsctnp07" path="res://scenes/tile_map.tscn" id="2_hwc53"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://w1a8ybx5a54b" path="res://entities/instances/collect_item_0.tres" id="3_dvso8"]
 [ext_resource type="PackedScene" uid="uid://nfi2g7bwursi" path="res://entities/collect_item.tscn" id="3_hi3t3"]
 [ext_resource type="Resource" uid="uid://ck5csn2pua7w5" path="res://entities/instances/collect_item_1.tres" id="4_4mltm"]
+[ext_resource type="PackedScene" uid="uid://xp5cr4yfi7ys" path="res://entities/coin.tscn" id="6_32ggj"]
 [ext_resource type="PackedScene" uid="uid://cp33dwxe3bruw" path="res://entities/stairs.tscn" id="6_ewl7a"]
 
 [node name="Dungeon" type="Node2D"]
@@ -27,6 +28,14 @@ collect_item_resource = ExtResource("4_4mltm")
 [node name="CollectItem2" parent="Items" instance=ExtResource("3_hi3t3")]
 position = Vector2(204, 100)
 collect_item_resource = ExtResource("3_4p736")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("6_32ggj")]
+position = Vector2(140, 108)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_32ggj")]
+position = Vector2(168, 68)
 
 [node name="Stairs" parent="." instance=ExtResource("6_ewl7a")]
 position = Vector2(188, 140)
