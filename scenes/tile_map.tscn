@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg5vrxsctnp07"]
+
+[ext_resource type="TileSet" uid="uid://bmv10ynprlwys" path="res://assets/dungeon_tileset.tres" id="1_xpecu"]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource("1_xpecu")
+cell_quadrant_size = 8
+format = 2

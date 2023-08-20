@@ -215,8 +215,8 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 > ✏️ Higher resolution for crafting and buying "shop"
 
 ### Roadmap
-- [ ] Player and `Enemies` movement (4 directions)
-- [ ] Tilemap (walls and layers for `Enemies`, player, and collectibles)
+- [x] Player and `Enemies` movement (4 directions)
+- [x] Tilemap (walls and layers for `Enemies`, player, and collectibles)
 - [ ] Allow completing the `Tier` when moving on top of end stairs
 - [ ] Store current `Tier`
 - [ ] `Tier`-specific `Inventory` system
