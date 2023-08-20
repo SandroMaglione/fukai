@@ -57,6 +57,7 @@ move_down={
 2d_physics/layer_3="resource"
 2d_physics/layer_4="coin"
 2d_physics/layer_5="enemy"
+2d_physics/layer_6="stair"
 
 [rendering]
 

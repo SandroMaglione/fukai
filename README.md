@@ -217,7 +217,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 ### Roadmap
 - [x] Player and `Enemies` movement (4 directions)
 - [x] Tilemap (walls and layers for `Enemies`, player, and collectibles)
-- [ ] Allow completing the `Tier` when moving on top of end stairs
+- [x] Allow completing the `Tier` when moving on top of end stairs
 - [ ] Store current `Tier`
 - [ ] `Tier`-specific `Inventory` system
 - [ ] Allow collecting `Resources` when nearby (do not move on top of it)

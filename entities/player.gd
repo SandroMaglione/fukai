@@ -12,4 +12,6 @@ func _process(_delta):
 func _on_grid_movement_collided(body):
 	print(body)
 	if body is CollectItem:
-		print(body.on_collect_item())
+		body.on_collect_item()
+	elif body is Stairs:
+		body.complete_tier()
