@@ -41,6 +41,8 @@ Materials that can be mixed to create `Weapons`, `Shields`, `Potions` ("crafting
 ### `Potions`
 Regain health.
 
+They can only be bought, not crafted!
+
 ### `Weapons`
 Tradeoff between space in `Inventory` and damage when attacking.
 
@@ -128,7 +130,7 @@ Each has a `Level`, that defines the following:
 - Attack (how much damage inflicted)
 - Speed (how often they move)
 - Range (how close the player should be before chasing)
-- Loot
+- ✏️ Loot
   - Frequency (how often dropping something)
   - Rare (how rare is the `Resource` dropped)
 
@@ -200,3 +202,44 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
   - Each has different `Resources`, only found in a specific dungeon
   - Unique `Enemies` (sprites and abilities)
   - Progress through dungeons (complete one, move to another)
+
+
+***
+
+
+## Implementation
+
+### Art
+8x8 pixel art tileset. Assets all 8x8.
+
+> ✏️ Higher resolution for crafting and buying "shop"
+
+### Roadmap
+- [ ] Player and `Enemies` movement (4 directions)
+- [ ] Tilemap (walls and layers for `Enemies`, player, and collectibles)
+- [ ] Allow completing the `Tier` when moving on top of end stairs
+- [ ] Store current `Tier`
+- [ ] `Tier`-specific `Inventory` system
+- [ ] Allow collecting `Resources` when nearby (do not move on top of it)
+- [ ] Allow getting coins when moving on top of them
+- [ ] `Enemy` shared properties
+- [ ] `Enemy` concrete instances (based on current `Tier`)
+- [ ] Allow attacking when something nearby
+- [ ] Player stats definition
+- [ ] Killing `Enemy` when health zero
+- [ ] `Enemy` state machine
+- [ ] Turn based movement for player and all `Enemies` (based on speed)
+- [ ] `Enemy` path finding towards the player
+- [ ] Killing player when health zero (lose loot and come back to workstation)
+- [ ] Allow use `Potion` to gain back health
+- [ ] Player leveling system (`Experience` points and grow next level)
+- [ ] Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
+- [ ] Generate room concrete instance (based on current `Tier`)
+- [ ] Create dungeon (connect rooms concrete instances)
+- [ ] `Resources` definition (shared properties, concrete instances)
+- [ ] `Weapons` definition
+- [ ] `Shields` definition
+- [ ] Allow crafting (selection of what to create, each showing how much and what `Resources` it costs)
+- [ ] Allow buying (show how much `Coins` it cost, click to get)
+- [ ] Store complete workstation `Inventory` (all `Resources`, `Coins`, `Weapons`, `Shields`, `Potions`)
+- [ ] Prepare `Inventory` to go into dungeon
