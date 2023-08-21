@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cex7v755m2vp5"]
+[gd_scene load_steps=4 format=3 uid="uid://cex7v755m2vp5"]
 
 [ext_resource type="PackedScene" uid="uid://dq1yxk0cy8e7f" path="res://entities/player.tscn" id="1_xccqg"]
+[ext_resource type="PackedScene" uid="uid://ykgm2mu1vo0o" path="res://entities/enemy.tscn" id="2_5lj7b"]
 [ext_resource type="PackedScene" uid="uid://bg5vrxsctnp07" path="res://scenes/tile_map.tscn" id="2_hwc53"]
 
 [node name="Dungeon" type="Node2D"]
@@ -10,6 +11,9 @@ layer_0/tile_data = PackedInt32Array(1572878, 65536, 1, 1507342, 65536, 1, 14418
 layer_1/tile_data = PackedInt32Array(655377, 1, 0, 524310, 65537, 0, 393232, 131073, 0)
 layer_2/tile_data = PackedInt32Array(917520, 3, 0, 458771, 3, 0, 917527, 3, 0)
 layer_3/tile_data = PackedInt32Array(1114135, 4, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("2_5lj7b")]
+position = Vector2(132, 68)
 
 [node name="Player" parent="." instance=ExtResource("1_xccqg")]
 position = Vector2(164, 84)
