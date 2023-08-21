@@ -23,6 +23,9 @@ func _ready():
 	astar_grid.update()
 	
 	var walls = tilemap.get_used_cells(Constants.WALLS_LAYER_ID)
+	var stairs = tilemap.get_used_cells(Constants.STAIRS_LAYER_ID)
+	walls.append_array(stairs)
+	
 	for cell in walls:
 		print(cell)
 		astar_grid.set_point_solid(cell)
@@ -40,13 +43,13 @@ func next_move_direction() -> Vector2:
 	var player_coords = tilemap.local_to_map(player.global_position)
 	
 	var path_ids = astar_grid.get_id_path(actor_coords, player_coords)
-	print(path_ids)
-	
+	if path_ids.size() == 0:
+		push_warning("No path to reach the player!")
+		return Vector2.ZERO
+		
+	# Index 0 is current position, so use index 1
 	var next_path_id = path_ids[1]
-	print(astar_grid.is_point_solid(next_path_id))
-	
 	var next_direction = next_direction_from_path(actor_coords, next_path_id)
-	
 	
 	if path_ids.size() == 2:
 		_on_grid_movement_movement_completed()
