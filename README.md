@@ -226,8 +226,8 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [ ] Allow attacking when something nearby
 - [ ] Player stats definition
 - [ ] Killing `Enemy` when health zero
-- [ ] `Enemy` state machine
-- [ ] Turn based movement for player and all `Enemies` (based on speed)
+- [x] `Enemy` state machine
+- [x] Turn based movement for player and all `Enemies` (based on speed)
 - [ ] `Enemy` path finding towards the player
 - [ ] Killing player when health zero (lose loot and come back to workstation)
 - [ ] Allow use `Potion` to gain back health

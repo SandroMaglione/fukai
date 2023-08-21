@@ -54,6 +54,7 @@ move_down={
 [layer_names]
 
 2d_physics/layer_1="player"
+2d_navigation/layer_1="open_path"
 2d_physics/layer_2="wall"
 2d_physics/layer_3="resource"
 2d_physics/layer_4="coin"
