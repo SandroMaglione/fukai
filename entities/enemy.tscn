@@ -43,14 +43,16 @@ debug_color = Color(0.694118, 0.00784314, 0.231373, 0.419608)
 
 [node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("4_ir2dp")
-current_state = NodePath("RoamingEnemyMovement")
+current_state = NodePath("ChaseEnemyMovement")
 
 [node name="RoamingEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("grid_movement")]
 script = ExtResource("3_e2tlr")
 grid_movement = NodePath("../../GridMovement")
 
-[node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("grid_movement")]
+[node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("actor", "grid_movement")]
 script = ExtResource("4_fykiq")
+actor = NodePath("../..")
 grid_movement = NodePath("../../GridMovement")
 
 [connection signal="movement_completed" from="GridMovement" to="EnemyMovement/RoamingEnemyMovement" method="_on_grid_movement_movement_completed"]
+[connection signal="movement_completed" from="GridMovement" to="EnemyMovement/ChaseEnemyMovement" method="_on_grid_movement_movement_completed"]

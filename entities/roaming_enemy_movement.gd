@@ -25,6 +25,5 @@ func random_direction() -> Vector2:
 	
 	return Vector2.ZERO
 
-
 func _on_grid_movement_movement_completed():
 	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)

@@ -13,10 +13,10 @@ layer_2/tile_data = PackedInt32Array(917520, 3, 0, 458771, 3, 0, 917527, 3, 0)
 layer_3/tile_data = PackedInt32Array(1114135, 4, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("2_5lj7b")]
-position = Vector2(132, 68)
-
-[node name="Player" parent="." instance=ExtResource("1_xccqg")]
-position = Vector2(132, 76)
+position = Vector2(148, 44)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_5lj7b")]
-position = Vector2(180, 44)
+position = Vector2(148, 124)
+
+[node name="Player" parent="." instance=ExtResource("1_xccqg")]
+position = Vector2(180, 76)
