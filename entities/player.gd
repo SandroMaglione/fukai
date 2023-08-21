@@ -8,11 +8,15 @@ func _ready():
 	position -= Vector2.ONE * (Constants.TILE_SIZE / 2)
  
 func _process(_delta):
-	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var collider = grid_movement.move(input_direction)
-	
-	if collider == null:
-		grid_movement.execute_move(input_direction)
+	if TurnBasedMovement.is_player_turn() and not grid_movement.is_moving():
+		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		
+		if input_direction.length() != 0:
+			var collider = grid_movement.move(input_direction)
+			
+			if collider == null:
+				grid_movement.execute_move(input_direction)
+				TurnBasedMovement.turn_completed()
 
 func _on_grid_movement_collided(body, movement):
 	if body is TileMap:

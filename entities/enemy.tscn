@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ykgm2mu1vo0o"]
+[gd_scene load_steps=9 format=3 uid="uid://ykgm2mu1vo0o"]
 
 [ext_resource type="Script" path="res://entities/enemy.gd" id="1_pv75r"]
 [ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_y0jeg"]
 [ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="2_11sgw"]
 [ext_resource type="Script" path="res://entities/roaming_enemy_movement.gd" id="3_e2tlr"]
 [ext_resource type="Script" path="res://entities/chase_enemy_movement.gd" id="4_fykiq"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_ir2dp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e10k4"]
 animations = [{
@@ -27,7 +28,9 @@ script = ExtResource("1_pv75r")
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_e10k4")
 
-[node name="GridMovement" parent="." instance=ExtResource("2_11sgw")]
+[node name="GridMovement" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("2_11sgw")]
+collision_mask = 51
+actor = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
@@ -36,7 +39,9 @@ collision_mask = 19
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ddnc6")
 
-[node name="EnemyMovement" type="Node" parent="."]
+[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("4_ir2dp")
+current_state = NodePath("RoamingEnemyMovement")
 
 [node name="RoamingEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("grid_movement")]
 script = ExtResource("3_e2tlr")
