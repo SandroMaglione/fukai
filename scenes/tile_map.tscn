@@ -6,3 +6,11 @@
 tile_set = ExtResource("1_xpecu")
 cell_quadrant_size = 8
 format = 2
+layer_0/name = "wall"
+layer_1/name = "resource"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
