@@ -5,6 +5,7 @@ class_name GridMovement
 @export var speed: float = 0.25
 
 signal collided(body, movement)
+signal movement_completed()
 
 var moving_direction: Vector2 = Vector2.ZERO
 var collided_direction: Vector2 = Vector2.ZERO
@@ -41,7 +42,7 @@ func execute_move(direction: Vector2) -> void:
 		
 		var tween = create_tween()
 		tween.tween_property(actor, "position", new_position, speed).set_trans(Tween.TRANS_LINEAR)
-		tween.tween_callback(func(): moving_direction = Vector2.ZERO)
+		tween.tween_callback(_movement_completed)
 		
 func is_moving() -> bool:
 	return  moving_direction.length() != 0
@@ -53,3 +54,7 @@ func _unit_direction(direction: Vector2) -> Vector2:
 	elif direction.x > 0: movement = Vector2.RIGHT
 	elif direction.x < 0: movement = Vector2.LEFT
 	return movement
+	
+func _movement_completed() -> void:
+	moving_direction = Vector2.ZERO
+	movement_completed.emit()

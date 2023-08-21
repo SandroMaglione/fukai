@@ -31,13 +31,15 @@ sprite_frames = SubResource("SpriteFrames_e10k4")
 [node name="GridMovement" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("2_11sgw")]
 collision_mask = 51
 actor = NodePath("..")
+speed = 0.15
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 19
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ddnc6")
+debug_color = Color(0.694118, 0.00784314, 0.231373, 0.419608)
 
 [node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("4_ir2dp")
@@ -50,3 +52,5 @@ grid_movement = NodePath("../../GridMovement")
 [node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("grid_movement")]
 script = ExtResource("4_fykiq")
 grid_movement = NodePath("../../GridMovement")
+
+[connection signal="movement_completed" from="GridMovement" to="EnemyMovement/RoamingEnemyMovement" method="_on_grid_movement_movement_completed"]

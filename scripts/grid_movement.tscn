@@ -5,4 +5,5 @@
 [node name="GridMovement" type="RayCast2D"]
 target_position = Vector2(2.08165e-12, 8)
 collision_mask = 2
+collide_with_areas = true
 script = ExtResource("1_jkeb4")

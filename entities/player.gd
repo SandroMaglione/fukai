@@ -16,7 +16,6 @@ func _process(_delta):
 			
 			if collider == null:
 				grid_movement.execute_move(input_direction)
-				TurnBasedMovement.turn_completed()
 
 func _on_grid_movement_collided(body, movement):
 	if body is TileMap:
@@ -45,3 +44,6 @@ func collect_item(body: TileMap, coords: Vector2i) -> void:
 		if collect_item_resource is CollectItemResource:
 			print(collect_item_resource.name)
 			body.set_cell(Constants.COLLECT_ITEM_LAYER_ID, coords, -1)
+
+func _on_grid_movement_movement_completed():
+	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.PLAYER)
