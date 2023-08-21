@@ -15,18 +15,29 @@ func _process(_delta):
 		grid_movement.execute_move(input_direction)
 
 func _on_grid_movement_collided(body, movement):
-	print(body)
 	if body is TileMap:
 		var coords = body.local_to_map(global_position + movement * Constants.TILE_SIZE)
-		var tile_data = body.get_cell_tile_data(1, coords)
-		if tile_data != null:
-			var collect_item_resource = tile_data.get_custom_data("collect_item_resource")
-			if collect_item_resource is CollectItemResource:
-				print(collect_item_resource)
 		
-	if body is Stairs:
-		body.complete_tier()
-		grid_movement.execute_move(movement)
-	elif body is Coin:
-		body.collect_coin()
-		grid_movement.execute_move(movement)
+		collect_item(body, coords)
+		step_on_stairs(body, coords)
+		collect_coin(body, coords)
+		
+func step_on_stairs(body: TileMap, coords: Vector2i) -> void:
+	var source_id = body.get_cell_source_id(Constants.STAIRS_LAYER_ID, coords)
+	if source_id != -1:
+		print("Stairs")
+		
+func collect_coin(body: TileMap, coords: Vector2i) -> void:
+	var source_id = body.get_cell_source_id(Constants.COINS_LAYER_ID, coords)
+	if source_id != -1:
+		print("Coin")
+		body.set_cell(Constants.COINS_LAYER_ID, coords, -1)
+
+func collect_item(body: TileMap, coords: Vector2i) -> void:
+	var tile_data = body.get_cell_tile_data(Constants.COLLECT_ITEM_LAYER_ID, coords)
+	if tile_data != null:
+		var collect_item_resource = tile_data.get_custom_data("collect_item_resource")
+		
+		if collect_item_resource is CollectItemResource:
+			print(collect_item_resource.name)
+			body.set_cell(Constants.COLLECT_ITEM_LAYER_ID, coords, -1)
