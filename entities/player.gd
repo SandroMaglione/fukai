@@ -1,4 +1,4 @@
-extends Node2D
+extends TurnActor
 class_name Player
 
 @export var player_resource: PlayerResource
@@ -8,8 +8,6 @@ class_name Player
 @onready var grid_movement: GridMovement = $GridMovement
 @onready var attack_movement: AttackMovement = $AttackMovement
 @onready var health_bar: HealthBar = $HealthBar
-
-var next_turn_counter: int = 0
 
 var health: int:
 	set(value):
@@ -24,7 +22,7 @@ func _ready():
 	health_bar.init_health(health)
  
 func _process(_delta):
-	if TurnBasedMovement.is_player_turn() and not grid_movement.is_moving() and not attack_movement.is_attacking:
+	if can_move and not grid_movement.is_moving() and not attack_movement.is_attacking:
 		if Input.is_action_just_pressed("use_potion"):
 			if inventory_in_game.inventory.potions > 0 and health < player_resource.health:
 				health += 3
@@ -37,17 +35,13 @@ func _process(_delta):
 				
 				if collider == null:
 					grid_movement.execute_move(input_direction)
-					
-					next_turn_counter = 0
 				else:
 					if collider is Node:
-						var owner = collider.owner
-						if owner is Enemy:
-							var damage = BattleHelper.player_attack(player_resource, owner.enemy_resource)
-							owner.get_damage(damage)
+						var node_owner = collider.owner
+						if node_owner is Enemy:
+							var damage = BattleHelper.player_attack(player_resource, node_owner.enemy_resource)
+							node_owner.get_damage(damage)
 							attack_movement.execute_attack(input_direction)
-							
-							next_turn_counter = 0
 
 func _on_grid_movement_collided(body, movement):
 	if body is TileMap:
@@ -86,7 +80,7 @@ func get_damage(damage: int) -> void:
 		print("Done")
 
 func _on_grid_movement_movement_completed():
-	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.PLAYER)
+	turn_completed.emit(self)
 
 func _on_attack_movement_attack_completed():
-	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.PLAYER)
+	turn_completed.emit(self)

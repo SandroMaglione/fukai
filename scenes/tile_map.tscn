@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg5vrxsctnp07"]
+[gd_scene load_steps=2 format=3 uid="uid://bg5vrxsctnp07"]
 
 [ext_resource type="TileSet" uid="uid://bmv10ynprlwys" path="res://assets/dungeon_tileset.tres" id="1_xpecu"]
-[ext_resource type="Script" path="res://scenes/tile_map.gd" id="2_p4nnu"]
 
 [node name="TileMap" type="TileMap" groups=["tilemap"]]
 tile_set = ExtResource("1_xpecu")
@@ -36,4 +35,3 @@ layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
 layer_4/z_index = -1
 layer_4/tile_data = PackedInt32Array()
-script = ExtResource("2_p4nnu")

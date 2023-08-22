@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dar3l"]
 size = Vector2(8, 8)
 
-[node name="Player" type="Node2D" groups=["player"]]
+[node name="Player" type="Node2D" groups=["player", "turn_moving"]]
 script = ExtResource("1_gc0gy")
 player_resource = SubResource("Resource_fnwc0")
 

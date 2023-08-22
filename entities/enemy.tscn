@@ -24,7 +24,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddnc6"]
 size = Vector2(8, 8)
 
-[node name="Enemy" type="Node2D" groups=["enemy"]]
+[node name="Enemy" type="Node2D" groups=["enemy", "turn_moving"]]
 script = ExtResource("1_pv75r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

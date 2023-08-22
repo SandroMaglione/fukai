@@ -1,72 +1,65 @@
 extends Node
-
-enum Turn { PLAYER, ENEMY, NONE }
-
-var current_turn: Turn = Turn.NONE:
-	set(value):
-		print(value)
-		current_turn = value
+class_name TurnBasedMovement
 
 var next_turn_counter_total: int
+var enemies_in_movement: int = 0
 
 func _ready():
 	var actors = get_actors()
 	for actor in actors:
+		next_turn_counter_total += actor.turn_actor_resource.speed
+		actor.turn_completed.connect(_on_turn_completed)
+		
 		if actor is Player:
-			next_turn_counter_total += actor.player_resource.speed
-		elif actor is Enemy:
-			next_turn_counter_total += actor.enemy_resource.speed
-	
-	choose_next_turn()
-	
-
-func turn_completed(my_turn: Turn) -> void:
-	var enemies = get_enemies()
-	if enemies.size() == 0:
-		current_turn = Turn.PLAYER
-	elif my_turn == current_turn:
-		choose_next_turn()
+			actor.can_move = true
 			
 func choose_next_turn() -> void:
-	current_turn = Turn.NONE
-	
 	var actors = get_actors()
 	for actor in actors:
-		if actor is Player:
-			actor.next_turn_counter += actor.player_resource.speed
-		elif actor is Enemy:
-			actor.next_turn_counter += actor.enemy_resource.speed
+		actor.next_turn_counter += actor.turn_actor_resource.speed
 	
 	var player = get_player()
 	if player.next_turn_counter > next_turn_counter_total:
-		current_turn = Turn.PLAYER
+		player.can_move = true
 	else:
 		var enemies_to_move = get_enemies()
 		var enemies_next_turn = enemies_to_move.filter(func (enemy): return enemy.next_turn_counter > next_turn_counter_total)
+		
 		if enemies_next_turn.size() == 0:
 			choose_next_turn()
 		else:
-			current_turn = Turn.ENEMY
+			enemies_in_movement = enemies_next_turn.size()
+			for enemy in enemies_next_turn:
+				enemy.can_move = true
+			
+func _on_turn_completed(actor: TurnActor) -> void:
+	actor.next_turn_counter = 0
+	actor.can_move = false
 	
-func is_player_turn() -> bool:
-	return current_turn == Turn.PLAYER
-
-func is_enemy_turn() -> bool:
-	return current_turn == Turn.ENEMY
-	
+	if actor is Enemy:
+		enemies_in_movement -= 1
+		
+		if enemies_in_movement == 0:
+			choose_next_turn()
+			
+	elif actor is Player:
+		choose_next_turn()
+			
 func get_player() -> Player:
 	return get_tree().get_nodes_in_group("player")[0] as Player
 	
 func get_enemies() -> Array[Enemy]:
-	var nodes = get_tree().get_nodes_in_group("enemy")
+	var actors = get_actors()
 	var enemies: Array[Enemy] = []
-	for node in nodes:
-		if node is Enemy:
-			enemies.append(node)
-	
+	for actor in actors:
+		if actor is Enemy:
+			enemies.append(actor)
 	return enemies
 	
-func get_actors() -> Array[Node]:
-	var actors = get_tree().get_nodes_in_group("enemy")
-	actors.append(get_player())
-	return actors
+func get_actors() -> Array[TurnActor]:
+	var actors = get_tree().get_nodes_in_group("turn_moving")
+	var turn_actors: Array[TurnActor] = []
+	for actor in actors:
+		if actor is TurnActor:
+			turn_actors.append(actor)
+	return turn_actors

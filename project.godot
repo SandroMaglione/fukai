@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*res://scripts/constants.gd"
-TurnBasedMovement="*res://scripts/turn_based_movement.gd"
 BattleHelper="*res://scripts/battle_helper.gd"
 GlobalInventory="*res://scripts/global_inventory.gd"
 
