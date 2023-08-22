@@ -23,20 +23,26 @@ func _ready():
  
 func _process(_delta):
 	if TurnBasedMovement.is_player_turn() and not grid_movement.is_moving() and not attack_movement.is_attacking:
-		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-		
-		if input_direction.length() != 0:
-			var collider = grid_movement.move(input_direction)
+		if Input.is_action_just_pressed("use_potion"):
+			if inventory_in_game.inventory.potions > 0:
+				health += 3
+				inventory_in_game.on_use_potion()
+		else:
+			var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
-			if collider == null:
-				grid_movement.execute_move(input_direction)
-			else:
-				if collider is Node:
-					var owner = collider.owner
-					if owner is Enemy:
-						var damage = BattleHelper.player_attack(player_resource, owner.enemy_resource)
-						owner.get_damage(damage)
-						attack_movement.execute_attack(input_direction)
+			
+			if input_direction.length() != 0:
+				var collider = grid_movement.move(input_direction)
+				
+				if collider == null:
+					grid_movement.execute_move(input_direction)
+				else:
+					if collider is Node:
+						var owner = collider.owner
+						if owner is Enemy:
+							var damage = BattleHelper.player_attack(player_resource, owner.enemy_resource)
+							owner.get_damage(damage)
+							attack_movement.execute_attack(input_direction)
 
 func _on_grid_movement_collided(body, movement):
 	if body is TileMap:

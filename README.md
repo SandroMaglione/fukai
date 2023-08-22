@@ -230,7 +230,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] `Enemy` path finding towards the player
 - [ ] Turn based system with actors speed
 - [ ] Killing player when health zero (lose loot and come back to workstation)
-- [ ] Allow use `Potion` to gain back health
+- [x] Allow use `Potion` to gain back health
 - [ ] Player leveling system (`Experience` points and grow next level)
 - [ ] Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
 - [ ] Generate room concrete instance (based on current `Tier`)

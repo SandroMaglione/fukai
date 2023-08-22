@@ -15,3 +15,6 @@ func on_collect_item(item: CollectItemResource) -> void:
 func on_collect_coin() -> void:
 	inventory.coins += 1
 	coins_label.text = String.num(inventory.coins)
+	
+func on_use_potion() -> void:
+	inventory.potions -= 1
