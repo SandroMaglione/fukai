@@ -228,6 +228,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] `Enemy` state machine
 - [x] Turn based movement for player and all `Enemies` (based on speed)
 - [x] `Enemy` path finding towards the player
+- [ ] Turn based system with actors speed
 - [ ] Killing player when health zero (lose loot and come back to workstation)
 - [ ] Allow use `Potion` to gain back health
 - [ ] Player leveling system (`Experience` points and grow next level)
@@ -249,6 +250,9 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 
 ## TODO
 - [ ] Enemies can move in the same position, since no collision is detected and they start moving at the same time
+- [ ] Implement attacking (defense) computations (add some randomness)
+- [ ] Add randomness in `Enemy` range, so that you are not doomed to be followed when spotted
+- [ ] Add indication that `Enemy` spotted you and it is following
 - [ ] Do not move on top of `Resources` (only `Coins`)
 - [ ] Allow short time between each player movement (not possible to keep button pressed and move indefinitely)
 - [ ] `Resources`, `Coins`, and stairs have similar structure, worth refactoring from same model?

@@ -1,15 +1,22 @@
 extends State
 class_name RoamingEnemyMovement
 
+@export var actor: Enemy
+
 @export var grid_movement: GridMovement
+@export var player_pathfinding: PlayerPathfinding
 
 func Physics_update(_delta):
 	if TurnBasedMovement.is_enemy_turn() and not grid_movement.is_moving():
-		var direction = random_direction()
-		var collider = grid_movement.move(direction)
-		
-		if collider == null:
-			grid_movement.execute_move(direction)
+		var path = player_pathfinding.get_path_to_player(actor)
+		if path.size() <= actor.enemy_resource.range:
+			transitioned.emit("ChaseEnemyMovement")
+		else:
+			var direction = random_direction()
+			var collider = grid_movement.move(direction)
+			
+			if collider == null:
+				grid_movement.execute_move(direction)
 		
 func random_direction() -> Vector2:
 	var rand = randi() % 5

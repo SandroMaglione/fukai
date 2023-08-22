@@ -5,29 +5,7 @@ class_name ChaseEnemyMovement
 @export var grid_movement: GridMovement
 @export var attack_movement: AttackMovement
 
-var tilemap: TileMap
-var player: Node2D
-
-var astar_grid: AStarGrid2D
-
-func _ready():
-	player = get_tree().get_nodes_in_group("player")[0] as Node2D
-	tilemap = get_tree().get_nodes_in_group("tilemap")[0] as TileMap
-	
-	astar_grid = AStarGrid2D.new()
-	
-	astar_grid.region = tilemap.get_used_rect()
-	astar_grid.cell_size = Vector2.ONE * Constants.TILE_SIZE
-	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
-	
-	astar_grid.update()
-	
-	var walls = tilemap.get_used_cells(Constants.WALLS_LAYER_ID)
-	var stairs = tilemap.get_used_cells(Constants.STAIRS_LAYER_ID)
-	walls.append_array(stairs)
-	
-	for cell in walls:
-		astar_grid.set_point_solid(cell)
+@export var player_pathfinding: PlayerPathfinding
 	
 func Physics_update(_delta):
 	if TurnBasedMovement.is_enemy_turn() and not grid_movement.is_moving() and not attack_movement.is_attacking:
@@ -45,23 +23,16 @@ func Physics_update(_delta):
 					attack_movement.execute_attack(direction)
 	
 func next_move_direction() -> Vector2:
-	var actor_coords = tilemap.local_to_map(actor.global_position)
-	var player_coords = tilemap.local_to_map(player.global_position)
-	
-	var path_ids = astar_grid.get_id_path(actor_coords, player_coords)
+	var path_ids = player_pathfinding.get_path_to_player(actor)
 	if path_ids.size() == 0:
 		push_warning("No path to reach the player!")
 		return Vector2.ZERO
+	elif path_ids.size() > actor.enemy_resource.range:
+		transitioned.emit("RoamingEnemyMovement")
+		return Vector2.ZERO
 		
-	# Index 0 is current position, so use index 1
-	var next_path_id = path_ids[1]
-	var next_direction = next_direction_from_path(actor_coords, next_path_id)
-	
+	var next_direction = path_ids[1] - path_ids[0]
 	return next_direction
-
-func next_direction_from_path(start: Vector2i, end: Vector2i) -> Vector2:
-	return end - start
-
 
 func _on_grid_movement_movement_completed():
 	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)

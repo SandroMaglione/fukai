@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ykgm2mu1vo0o"]
+[gd_scene load_steps=12 format=3 uid="uid://ykgm2mu1vo0o"]
 
 [ext_resource type="Script" path="res://entities/enemy.gd" id="1_pv75r"]
 [ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_y0jeg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_h00yb"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_ir2dp"]
 [ext_resource type="PackedScene" uid="uid://csmpgwmie1h1x" path="res://ui/health_bar.tscn" id="8_iqef8"]
+[ext_resource type="Script" path="res://entities/player_pathfinding.gd" id="9_e85ix"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e10k4"]
 animations = [{
@@ -39,6 +40,9 @@ speed = 0.15
 script = ExtResource("4_h00yb")
 actor = NodePath("..")
 
+[node name="PlayerPathfinding" type="Node" parent="."]
+script = ExtResource("9_e85ix")
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 0
@@ -49,17 +53,20 @@ debug_color = Color(0.694118, 0.00784314, 0.231373, 0.419608)
 
 [node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("4_ir2dp")
-current_state = NodePath("ChaseEnemyMovement")
+current_state = NodePath("RoamingEnemyMovement")
 
-[node name="RoamingEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("grid_movement")]
+[node name="RoamingEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("actor", "grid_movement", "player_pathfinding")]
 script = ExtResource("3_e2tlr")
+actor = NodePath("../..")
 grid_movement = NodePath("../../GridMovement")
+player_pathfinding = NodePath("../../PlayerPathfinding")
 
-[node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("actor", "grid_movement", "attack_movement")]
+[node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("actor", "grid_movement", "attack_movement", "player_pathfinding")]
 script = ExtResource("4_fykiq")
 actor = NodePath("../..")
 grid_movement = NodePath("../../GridMovement")
 attack_movement = NodePath("../../AttackMovement")
+player_pathfinding = NodePath("../../PlayerPathfinding")
 
 [node name="HealthBar" parent="." instance=ExtResource("8_iqef8")]
 

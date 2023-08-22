@@ -25,7 +25,7 @@ func on_child_transitioned(new_state_name: StringName) -> void:
 	if new_state != null:
 		if new_state != current_state:
 			current_state.Exit()
-			new_state._Enter()
+			new_state.Enter()
 			current_state = new_state
 	else:
 		push_warning("Called transition on a state that does not exist")
