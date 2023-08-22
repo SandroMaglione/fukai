@@ -4,12 +4,9 @@ class_name InventoryInGame
 @onready var coins_label = %CoinsLabel
 @onready var total_weight_label = %TotalWeightLabel
 
-var inventory: Inventory
+@export var inventory: Inventory
 		
 func _ready():
-	# TODO: Load inventory from assigned player selection
-	inventory = preload("res://scripts/instances/intial_inventory.tres")
-	
 	coins_label.text = String.num(inventory.coins)
 	total_weight_label.text = String.num(total_weight())
 

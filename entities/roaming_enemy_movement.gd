@@ -7,7 +7,7 @@ class_name RoamingEnemyMovement
 @export var player_pathfinding: PlayerPathfinding
 
 func Physics_update(_delta):
-	if TurnBasedMovement.is_enemy_turn() and not grid_movement.is_moving():
+	if actor.can_move() and not grid_movement.is_moving():
 		var path = player_pathfinding.get_path_to_player(actor)
 		if path.size() <= actor.enemy_resource.range:
 			transitioned.emit("ChaseEnemyMovement")
@@ -17,6 +17,9 @@ func Physics_update(_delta):
 			
 			if collider == null:
 				grid_movement.execute_move(direction)
+			else:
+				actor.next_turn_counter = 0
+				TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)			
 		
 func random_direction() -> Vector2:
 	var rand = randi() % 5
@@ -33,4 +36,5 @@ func random_direction() -> Vector2:
 	return Vector2.ZERO
 
 func _on_grid_movement_movement_completed():
+	actor.next_turn_counter = 0
 	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)

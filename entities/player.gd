@@ -9,6 +9,8 @@ class_name Player
 @onready var attack_movement: AttackMovement = $AttackMovement
 @onready var health_bar: HealthBar = $HealthBar
 
+var next_turn_counter: int = 0
+
 var health: int:
 	set(value):
 		health_bar.update_health(value)
@@ -30,12 +32,13 @@ func _process(_delta):
 		else:
 			var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
-			
 			if input_direction.length() != 0:
 				var collider = grid_movement.move(input_direction)
 				
 				if collider == null:
 					grid_movement.execute_move(input_direction)
+					
+					next_turn_counter = 0
 				else:
 					if collider is Node:
 						var owner = collider.owner
@@ -43,6 +46,8 @@ func _process(_delta):
 							var damage = BattleHelper.player_attack(player_resource, owner.enemy_resource)
 							owner.get_damage(damage)
 							attack_movement.execute_attack(input_direction)
+							
+							next_turn_counter = 0
 
 func _on_grid_movement_collided(body, movement):
 	if body is TileMap:

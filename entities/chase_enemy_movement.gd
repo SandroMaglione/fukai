@@ -8,19 +8,25 @@ class_name ChaseEnemyMovement
 @export var player_pathfinding: PlayerPathfinding
 	
 func Physics_update(_delta):
-	if TurnBasedMovement.is_enemy_turn() and not grid_movement.is_moving() and not attack_movement.is_attacking:
+	if actor.can_move() and not grid_movement.is_moving() and not attack_movement.is_attacking:
 		var direction = next_move_direction()
 		var collider = grid_movement.move(direction)
 		
 		if collider == null:
 			grid_movement.execute_move(direction)
+			return
 		else:
 			if collider is Node:
-				var owner = collider.owner
-				if owner is Player:
-					var damage = BattleHelper.enemy_attack(owner.player_resource, actor.enemy_resource)
-					owner.get_damage(damage)
+				var node_owner = collider.owner
+				if node_owner is Player:
+					var damage = BattleHelper.enemy_attack(node_owner.player_resource, actor.enemy_resource)
+					node_owner.get_damage(damage)
 					attack_movement.execute_attack(direction)
+					return
+		
+		actor.next_turn_counter = 0
+		TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)
+	
 	
 func next_move_direction() -> Vector2:
 	var path_ids = player_pathfinding.get_path_to_player(actor)
@@ -35,7 +41,9 @@ func next_move_direction() -> Vector2:
 	return next_direction
 
 func _on_grid_movement_movement_completed():
+	actor.next_turn_counter = 0
 	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)
 
 func _on_attack_movement_attack_completed():
+	actor.next_turn_counter = 0
 	TurnBasedMovement.turn_completed(TurnBasedMovement.Turn.ENEMY)

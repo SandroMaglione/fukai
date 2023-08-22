@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_fnwc0"]
 script = ExtResource("2_wo8yn")
-speed = 1
+speed = 3
 health = 10
 attack = 1
 defense = 1
