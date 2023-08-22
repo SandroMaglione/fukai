@@ -250,6 +250,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 
 ## TODO
 - [ ] Enemies can move in the same position, since no collision is detected and they start moving at the same time
+- [ ] Resources become solid like walls when inventory is full
 - [ ] Implement attacking (defense) computations (add some randomness)
 - [ ] Add randomness in `Enemy` range, so that you are not doomed to be followed when spotted
 - [ ] Add indication that `Enemy` spotted you and it is following

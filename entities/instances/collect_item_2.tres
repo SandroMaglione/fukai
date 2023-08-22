@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_i1amw")
 name = "collect2"
+weight = 4
 texture_index = 2

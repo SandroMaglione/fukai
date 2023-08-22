@@ -8,3 +8,4 @@ class_name Inventory
 
 # coins have no "weight"
 @export var coins: int = 0
+	

@@ -24,7 +24,7 @@ func _ready():
 func _process(_delta):
 	if TurnBasedMovement.is_player_turn() and not grid_movement.is_moving() and not attack_movement.is_attacking:
 		if Input.is_action_just_pressed("use_potion"):
-			if inventory_in_game.inventory.potions > 0:
+			if inventory_in_game.inventory.potions > 0 and health < player_resource.health:
 				health += 3
 				inventory_in_game.on_use_potion()
 		else:
@@ -70,10 +70,9 @@ func collect_item(body: TileMap, coords: Vector2i) -> void:
 		var collect_item_resource = tile_data.get_custom_data("collect_item_resource")
 		
 		if collect_item_resource is CollectItemResource:
-			inventory_in_game.on_collect_item(collect_item_resource)
-			
-			# Remove from tilemap
-			body.set_cell(Constants.COLLECT_ITEM_LAYER_ID, coords, -1)
+			var can_collect = inventory_in_game.on_collect_item(collect_item_resource)
+			if can_collect:
+				body.set_cell(Constants.COLLECT_ITEM_LAYER_ID, coords, -1)
 
 func get_damage(damage: int) -> void:
 	health -= damage

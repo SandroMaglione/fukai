@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_0ehma")
 name = "collect1"
+weight = 2
 texture_index = 1
