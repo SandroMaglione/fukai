@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ykgm2mu1vo0o"]
+[gd_scene load_steps=11 format=3 uid="uid://ykgm2mu1vo0o"]
 
 [ext_resource type="Script" path="res://entities/enemy.gd" id="1_pv75r"]
 [ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_y0jeg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://entities/chase_enemy_movement.gd" id="4_fykiq"]
 [ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_h00yb"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_ir2dp"]
+[ext_resource type="PackedScene" uid="uid://csmpgwmie1h1x" path="res://ui/health_bar.tscn" id="8_iqef8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e10k4"]
 animations = [{
@@ -22,7 +23,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddnc6"]
 size = Vector2(8, 8)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_pv75r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -59,6 +60,8 @@ script = ExtResource("4_fykiq")
 actor = NodePath("../..")
 grid_movement = NodePath("../../GridMovement")
 attack_movement = NodePath("../../AttackMovement")
+
+[node name="HealthBar" parent="." instance=ExtResource("8_iqef8")]
 
 [connection signal="movement_completed" from="GridMovement" to="EnemyMovement/RoamingEnemyMovement" method="_on_grid_movement_movement_completed"]
 [connection signal="movement_completed" from="GridMovement" to="EnemyMovement/ChaseEnemyMovement" method="_on_grid_movement_movement_completed"]

@@ -5,12 +5,19 @@ class_name Player
 
 @onready var grid_movement: GridMovement = $GridMovement
 @onready var attack_movement: AttackMovement = $AttackMovement
+@onready var health_bar: HealthBar = $HealthBar
 
-@onready var health: int = player_resource.health
+var health: int:
+	set(value):
+		health_bar.update_health(value)
+		health = value
 
 func _ready():
 	position = position.snapped(Vector2.ONE * Constants.TILE_SIZE)
 	position -= Vector2.ONE * (Constants.TILE_SIZE / 2)
+	
+	health = player_resource.health
+	health_bar.init_health(health)
  
 func _process(_delta):
 	if TurnBasedMovement.is_player_turn() and not grid_movement.is_moving() and not attack_movement.is_attacking:
@@ -60,7 +67,7 @@ func collect_item(body: TileMap, coords: Vector2i) -> void:
 func get_damage(damage: int) -> void:
 	health -= damage
 	
-	if health < 0:
+	if health <= 0:
 		print("Done")
 
 func _on_grid_movement_movement_completed():
