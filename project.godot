@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Constants="*res://scripts/constants.gd"
 TurnBasedMovement="*res://scripts/turn_based_movement.gd"
+BattleHelper="*res://scripts/battle_helper.gd"
 
 [display]
 

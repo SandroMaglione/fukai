@@ -221,11 +221,10 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] Allow completing the `Tier` when moving on top of end stairs
 - [x] Allow collecting `Resources` when nearby (do not move on top of it)
 - [x] Allow getting coins when moving on top of them
-- [ ] `Enemy` shared properties
-- [ ] `Enemy` concrete instances (based on current `Tier`)
-- [ ] Allow attacking when something nearby
-- [ ] Player stats definition
-- [ ] Killing `Enemy` when health zero
+- [x] `Enemy` shared properties
+- [x] Allow attacking when something nearby
+- [x] Player stats definition
+- [x] Killing `Enemy` when health zero
 - [x] `Enemy` state machine
 - [x] Turn based movement for player and all `Enemies` (based on speed)
 - [x] `Enemy` path finding towards the player
@@ -237,6 +236,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [ ] Create dungeon (connect rooms concrete instances)
 - [ ] Store current `Tier`
 - [ ] `Tier`-specific `Inventory` system
+- [ ] `Enemy` concrete instances (based on current `Tier`)
 - [ ] `Resources` definition (shared properties, concrete instances)
 - [ ] `Weapons` definition
 - [ ] `Shields` definition

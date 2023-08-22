@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ykgm2mu1vo0o"]
+[gd_scene load_steps=10 format=3 uid="uid://ykgm2mu1vo0o"]
 
 [ext_resource type="Script" path="res://entities/enemy.gd" id="1_pv75r"]
 [ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_y0jeg"]
 [ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="2_11sgw"]
 [ext_resource type="Script" path="res://entities/roaming_enemy_movement.gd" id="3_e2tlr"]
 [ext_resource type="Script" path="res://entities/chase_enemy_movement.gd" id="4_fykiq"]
+[ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_h00yb"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_ir2dp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e10k4"]
@@ -33,6 +34,10 @@ collision_mask = 51
 actor = NodePath("..")
 speed = 0.15
 
+[node name="AttackMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("4_h00yb")
+actor = NodePath("..")
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 0
@@ -49,10 +54,12 @@ current_state = NodePath("ChaseEnemyMovement")
 script = ExtResource("3_e2tlr")
 grid_movement = NodePath("../../GridMovement")
 
-[node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("actor", "grid_movement")]
+[node name="ChaseEnemyMovement" type="Node" parent="EnemyMovement" node_paths=PackedStringArray("actor", "grid_movement", "attack_movement")]
 script = ExtResource("4_fykiq")
 actor = NodePath("../..")
 grid_movement = NodePath("../../GridMovement")
+attack_movement = NodePath("../../AttackMovement")
 
 [connection signal="movement_completed" from="GridMovement" to="EnemyMovement/RoamingEnemyMovement" method="_on_grid_movement_movement_completed"]
 [connection signal="movement_completed" from="GridMovement" to="EnemyMovement/ChaseEnemyMovement" method="_on_grid_movement_movement_completed"]
+[connection signal="attack_completed" from="AttackMovement" to="EnemyMovement/ChaseEnemyMovement" method="_on_attack_movement_attack_completed"]
