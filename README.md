@@ -256,3 +256,4 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [ ] Do not move on top of `Resources` (only `Coins`)
 - [ ] Allow short time between each player movement (not possible to keep button pressed and move indefinitely)
 - [ ] `Resources`, `Coins`, and stairs have similar structure, worth refactoring from same model?
+- [ ] Allow each `Coin` to have a different value (new `Coin` class with a random value assigned when creating the level)

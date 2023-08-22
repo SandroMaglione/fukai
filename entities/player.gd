@@ -3,6 +3,8 @@ class_name Player
 
 @export var player_resource: PlayerResource
 
+@export var inventory_in_game: InventoryInGame
+
 @onready var grid_movement: GridMovement = $GridMovement
 @onready var attack_movement: AttackMovement = $AttackMovement
 @onready var health_bar: HealthBar = $HealthBar
@@ -52,7 +54,8 @@ func step_on_stairs(body: TileMap, coords: Vector2i) -> void:
 func collect_coin(body: TileMap, coords: Vector2i) -> void:
 	var source_id = body.get_cell_source_id(Constants.COINS_LAYER_ID, coords)
 	if source_id != -1:
-		print("Coin")
+		inventory_in_game.on_collect_coin()
+		
 		body.set_cell(Constants.COINS_LAYER_ID, coords, -1)
 
 func collect_item(body: TileMap, coords: Vector2i) -> void:
@@ -61,7 +64,9 @@ func collect_item(body: TileMap, coords: Vector2i) -> void:
 		var collect_item_resource = tile_data.get_custom_data("collect_item_resource")
 		
 		if collect_item_resource is CollectItemResource:
-			print(collect_item_resource.name)
+			inventory_in_game.on_collect_item(collect_item_resource)
+			
+			# Remove from tilemap
 			body.set_cell(Constants.COLLECT_ITEM_LAYER_ID, coords, -1)
 
 func get_damage(damage: int) -> void:

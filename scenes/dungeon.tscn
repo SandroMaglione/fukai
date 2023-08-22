@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cex7v755m2vp5"]
+[gd_scene load_steps=8 format=3 uid="uid://cex7v755m2vp5"]
 
 [ext_resource type="PackedScene" uid="uid://dq1yxk0cy8e7f" path="res://entities/player.tscn" id="1_xccqg"]
 [ext_resource type="PackedScene" uid="uid://ykgm2mu1vo0o" path="res://entities/enemy.tscn" id="2_5lj7b"]
 [ext_resource type="PackedScene" uid="uid://bg5vrxsctnp07" path="res://scenes/tile_map.tscn" id="2_hwc53"]
 [ext_resource type="Script" path="res://entities/enemy_resource.gd" id="3_ea45l"]
+[ext_resource type="PackedScene" uid="uid://bfh1whnls0piw" path="res://ui/inventory_in_game.tscn" id="5_yntmr"]
 
 [sub_resource type="Resource" id="Resource_ki62v"]
 script = ExtResource("3_ea45l")
@@ -34,9 +35,14 @@ layer_4/tile_data = PackedInt32Array(262159, 0, 3, 327695, 0, 3, 393231, 0, 3, 2
 position = Vector2(188, 52)
 enemy_resource = SubResource("Resource_ki62v")
 
-[node name="Player" parent="." instance=ExtResource("1_xccqg")]
+[node name="Player" parent="." node_paths=PackedStringArray("inventory_in_game") instance=ExtResource("1_xccqg")]
 position = Vector2(188, 76)
+inventory_in_game = NodePath("../CanvasLayer/InventoryInGame")
 
 [node name="Enemy2" parent="." instance=ExtResource("2_5lj7b")]
 position = Vector2(164, 108)
 enemy_resource = SubResource("Resource_x4si1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryInGame" parent="CanvasLayer" instance=ExtResource("5_yntmr")]
