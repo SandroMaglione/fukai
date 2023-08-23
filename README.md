@@ -207,6 +207,31 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 
 ***
 
+## Gameplay update
+- No more `Weapons` and `Shields`, and therefore no more `Coins` and shop
+- A `Resource` becomes a `Crystal`
+  - All same sprite with different colors
+  - No more limit in the `Inventory` for `Crystals`
+  - Still required to reach the stairs to store collected `Crystals`
+- Use `Crystals` to craft `Potions`
+  - Health up
+  - Speed up
+  - Attack up
+  - Defense up
+  - Invisible
+  - Thunderbolt (cells around player)
+  - Teletransport (escape from enemies horde)
+- In-game `Inventory` becomes made of `Potions`
+  - Choose carefully which `Potions` to bring with limited space
+  - Each `Potion` has a **weight**
+  - `Potions` are 1-time use, but **not if you get killed**
+- Player levels
+  - Gain experience by killing enemies
+    - Only when reaching the stairs
+  - When reaching a new level you get 1 point to assign to your stats 
+
+***
+
 
 ## Implementation
 
