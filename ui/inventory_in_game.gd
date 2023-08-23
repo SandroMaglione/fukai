@@ -9,16 +9,15 @@ func _ready():
 	total_weight_label.text = String.num(total_weight())
 
 func on_collect_crystal(crystal: CrystalResource) -> void:
-	inventory.crystals.append(crystal)
+	if inventory.crystals.has(crystal.name):
+		inventory.crystals[crystal.name] += 1
+	else:
+		inventory.crystals[crystal.name] = 1
+		
 	total_weight_label.text = String.num(total_weight())
 	
 func on_use_potion() -> void:
-	inventory.potions -= 1
 	total_weight_label.text = String.num(total_weight())
 
 func total_weight() -> int:
-	var items_weight: int = 0
-	for item in inventory.crystals:
-		items_weight += item.weight
-		
-	return inventory.potions + items_weight
+	return 0

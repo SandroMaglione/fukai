@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=2 format=3 uid="uid://cub0hf38mpr1h"]
+
+[ext_resource type="Script" path="res://entities/potion_resource.gd" id="1_y1vpt"]
+
+[resource]
+script = ExtResource("1_y1vpt")
+name = "speed"
+texture_index = 0
+weight = 3

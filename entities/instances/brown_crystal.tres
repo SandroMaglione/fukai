@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_kao7j")
-name = "attack"
-weight = 2
+name = "brown"
 texture_index = 2

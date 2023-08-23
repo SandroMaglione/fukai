@@ -7,3 +7,7 @@ script = ExtResource("1_ehn54")
 name = "health"
 texture_index = 0
 weight = 2
+craft_requirements = {
+"red": 3,
+"yellow": 1
+}

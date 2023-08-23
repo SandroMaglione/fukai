@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_6tehb")
-name = "speed"
-weight = 3
+name = "yellow"
 texture_index = 1

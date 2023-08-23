@@ -263,12 +263,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [ ] Store current `Tier`
 - [ ] `Tier`-specific `Inventory` system
 - [ ] `Enemy` concrete instances (based on current `Tier`)
-- [ ] `Resources` definition (shared properties, concrete instances)
-- [ ] `Weapons` definition
-- [ ] `Shields` definition
-- [ ] Allow crafting (selection of what to create, each showing how much and what `Resources` it costs)
-- [ ] Allow buying (show how much `Coins` it cost, click to get)
-- [ ] Store complete workstation `Inventory` (all `Resources`, `Coins`, `Weapons`, `Shields`, `Potions`)
+- [x] Allow crafting (selection of what to create, each showing how much and what `Crystal` it costs)
 - [ ] Prepare `Inventory` to go into dungeon
 
 ***

@@ -3,7 +3,7 @@ class_name CrystalUI
 
 @onready var crystal_quantity = %CrystalQuantity
 
-var crystal_name: String = ""
+var crystal_resource: CrystalResource
 
 var crystal_quantity_value: int = 0:
 	set(value):

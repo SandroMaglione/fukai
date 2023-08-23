@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_4nnoa")
-name = "health"
-weight = 0
+name = "red"
 texture_index = 0
