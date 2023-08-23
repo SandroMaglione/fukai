@@ -1,48 +1,31 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0w7iu8pa867p"]
 
-[ext_resource type="Texture2D" uid="uid://c1w1r4pa5l61p" path="res://icon.svg" id="1_5nt20"]
+[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_n0hpf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul5i"]
 bg_color = Color(0.839216, 0.509804, 0.184314, 1)
 
-[node name="PotionCraftUI" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PotionCraftUI" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PotionCraftUI" type="Panel"]
+custom_minimum_size = Vector2(40, 60)
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_yul5i")
 
-[node name="MarginContainer" type="MarginContainer" parent="PotionCraftUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PotionCraftUI/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PotionCraftUI/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 30)
 layout_mode = 2
-texture = ExtResource("1_5nt20")
+texture = ExtResource("1_n0hpf")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PotionCraftUI/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 20)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 4
