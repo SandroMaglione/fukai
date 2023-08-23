@@ -255,16 +255,41 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] `Enemy` path finding towards the player
 - [x] Turn based system with actors speed
 - [x] Allow use `Potion` to gain back health
-- [ ] Killing player when health zero (lose loot and come back to workstation)
-- [ ] Player leveling system (`Experience` points and grow next level)
-- [ ] Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
-- [ ] Generate room concrete instance (based on current `Tier`)
-- [ ] Create dungeon (connect rooms concrete instances)
-- [ ] Store current `Tier`
-- [ ] `Tier`-specific `Inventory` system
-- [ ] `Enemy` concrete instances (based on current `Tier`)
 - [x] Allow crafting (selection of what to create, each showing how much and what `Crystal` it costs)
-- [ ] Prepare `Inventory` to go into dungeon
+- [ ] Remove "local" `Inventory`, all `Crystals` collected go in global
+- [ ] Screen to prepare `Inventory` to go into dungeon
+  - Display all `Potions` available and their quantity
+  - Click on `Potion` to add x1 to `Inventory`
+  - Click on `Potion` in `Inventory` to remove x1 from `Inventory`
+  - Display `Inventory` max size and how much is full
+  - Add button to go to crafting screen
+  - Add button to enter dungeon with selected `Inventory`
+  - ✏️ Allow to select dungeon `Tier`
+- [ ] Killing player when health zero
+  - Come back to prepare `Inventory` screen
+  - ✏️ Store previous `Inventory` selection to use as autocomplete for next round
+- [ ] Complete `Tier` when stepping on top of stairs
+  - Add +1 to global `Tier`
+- [ ] Player leveling system (`Experience` points and grow next level)
+  - Add global player stats (with experience points)
+  - Add experience points after each `Enemy` defeated
+  - Add experience points when `Tier` completed
+  - Show dialog to add gained point to player stats
+    - Display grid with all stats and their current points assigned
+    - Allow to click on a stat to add the point
+    - Click confirm to add the point to the selected stat
+- [ ] ✏️ Create dungeon (connect rooms concrete instances)
+  - Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
+  - Generate room concrete instance (based on current `Tier`)
+- [ ] Spawn random `Enemy` concrete instances (based on current `Tier`)
+- [ ] Spawn random stairs position at every round
+- [ ] Store current `Tier` in global script
+- [ ] Add buttons in game to use potions in `Inventory` (with numbers keyboard shortcuts)
+  - Remove `Potion` from global `Inventory` when used
+- [ ] Implement all potions abilities
+  - Stats up
+  - Invisible
+  - Thunder
 
 ***
 
