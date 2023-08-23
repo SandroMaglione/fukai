@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=2 format=3 uid="uid://dcam3l82liqwg"]
+
+[ext_resource type="Script" path="res://entities/potion_resource.gd" id="1_ehn54"]
+
+[resource]
+script = ExtResource("1_ehn54")
+name = "health"
+texture_index = 0
+weight = 2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0w7iu8pa867p"]
+[gd_scene load_steps=4 format=3 uid="uid://c0w7iu8pa867p"]
 
 [ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_n0hpf"]
+[ext_resource type="Script" path="res://ui/potion_craft_ui.gd" id="1_ya43p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul5i"]
 bg_color = Color(0.839216, 0.509804, 0.184314, 1)
@@ -9,6 +10,7 @@ bg_color = Color(0.839216, 0.509804, 0.184314, 1)
 custom_minimum_size = Vector2(40, 60)
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_yul5i")
+script = ExtResource("1_ya43p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -25,7 +27,8 @@ texture = ExtResource("1_n0hpf")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="PotionQuantity" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 20)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 4

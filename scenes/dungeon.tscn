@@ -65,7 +65,7 @@ defense = 1
 script = ExtResource("8_pay84")
 size = 10
 crystals = Array[Resource("res://entities/crystal_resource.gd")]([])
-potions = 3
+potions = Array[Resource("res://entities/potion_resource.gd")]([])
 
 [node name="Dungeon" type="Node2D"]
 
