@@ -22,6 +22,7 @@ func Physics_update(_delta):
 					var damage = BattleHelper.enemy_attack(node_owner.player_resource, actor.enemy_resource)
 					node_owner.get_damage(damage)
 					attack_movement.execute_attack(direction)
+					print("Attack")
 					return
 		
 		# Otherwise no movement

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CrystalResource" load_steps=2 format=3 uid="uid://bvxyacw3lhrjn"]
+
+[ext_resource type="Script" path="res://entities/crystal_resource.gd" id="1_kao7j"]
+
+[resource]
+script = ExtResource("1_kao7j")
+name = "attack"
+weight = 2
+texture_index = 2

@@ -1,11 +1,10 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://bmv10ynprlwys"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://bmv10ynprlwys"]
 
-[ext_resource type="Resource" uid="uid://w1a8ybx5a54b" path="res://entities/instances/collect_item_0.tres" id="1_3guwq"]
 [ext_resource type="Texture2D" uid="uid://m5m0aah4wkng" path="res://assets/tileset.png" id="1_3v5wt"]
 [ext_resource type="Texture2D" uid="uid://dchaq826q8xxd" path="res://assets/resources-tileset.png" id="1_amucd"]
-[ext_resource type="Resource" uid="uid://ck5csn2pua7w5" path="res://entities/instances/collect_item_1.tres" id="2_2qmt6"]
-[ext_resource type="Resource" uid="uid://c7onha210w317" path="res://entities/instances/collect_item_2.tres" id="3_ufqfl"]
-[ext_resource type="Texture2D" uid="uid://cy76xsaj8yjun" path="res://assets/sprites/coin-sprite.png" id="6_ygk6f"]
+[ext_resource type="Resource" uid="uid://bhyng04eap3j1" path="res://entities/instances/red_crystal.tres" id="2_1khl5"]
+[ext_resource type="Resource" uid="uid://bgpwagt73gq6t" path="res://entities/instances/yellow_crystal.tres" id="3_hm250"]
+[ext_resource type="Resource" uid="uid://bvxyacw3lhrjn" path="res://entities/instances/brown_crystal.tres" id="4_holqw"]
 [ext_resource type="Texture2D" uid="uid://bucegg3no52h0" path="res://assets/sprites/stairs-sprite.png" id="7_6y765"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_616mf"]
@@ -232,7 +231,7 @@ texture_region_size = Vector2i(8, 8)
 0:3/0/physics_layer_3/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akmeq"]
-resource_name = "resources"
+resource_name = "crystal"
 texture = ExtResource("1_amucd")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -245,7 +244,7 @@ texture_region_size = Vector2i(8, 8)
 0:0/0/physics_layer_2/angular_velocity = 0.0
 0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_3/angular_velocity = 0.0
-0:0/0/custom_data_0 = ExtResource("1_3guwq")
+0:0/0/custom_data_0 = ExtResource("2_1khl5")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -256,7 +255,7 @@ texture_region_size = Vector2i(8, 8)
 1:0/0/physics_layer_2/angular_velocity = 0.0
 1:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_3/angular_velocity = 0.0
-1:0/0/custom_data_0 = ExtResource("2_2qmt6")
+1:0/0/custom_data_0 = ExtResource("3_hm250")
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
@@ -267,22 +266,7 @@ texture_region_size = Vector2i(8, 8)
 2:0/0/physics_layer_2/angular_velocity = 0.0
 2:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_3/angular_velocity = 0.0
-2:0/0/custom_data_0 = ExtResource("3_ufqfl")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evcbb"]
-resource_name = "coin"
-texture = ExtResource("6_ygk6f")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_1/angular_velocity = 0.0
-0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_2/angular_velocity = 0.0
-0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_3/angular_velocity = 0.0
+2:0/0/custom_data_0 = ExtResource("4_holqw")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rohmp"]
 resource_name = "stairs"
@@ -312,5 +296,4 @@ custom_data_layer_0/name = "collect_item_resource"
 custom_data_layer_0/type = 24
 sources/0 = SubResource("TileSetAtlasSource_616mf")
 sources/1 = SubResource("TileSetAtlasSource_akmeq")
-sources/3 = SubResource("TileSetAtlasSource_evcbb")
-sources/4 = SubResource("TileSetAtlasSource_rohmp")
+sources/3 = SubResource("TileSetAtlasSource_rohmp")

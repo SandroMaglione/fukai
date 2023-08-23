@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CollectItemResource" load_steps=2 format=3 uid="uid://c7onha210w317"]
-
-[ext_resource type="Script" path="res://entities/collect_item_resource.gd" id="1_i1amw"]
-
-[resource]
-script = ExtResource("1_i1amw")
-name = "collect2"
-weight = 4
-texture_index = 2

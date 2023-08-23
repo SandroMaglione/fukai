@@ -1,5 +1,5 @@
 extends Resource
-class_name CollectItemResource
+class_name CrystalResource
 
 @export var name: String
 @export_range(1, 10) var weight: int

@@ -275,11 +275,5 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 
 ## TODO
 - [ ] Enemies can move in the same position, since no collision is detected and they start moving at the same time
-- [ ] Resources become solid like walls when inventory is full
+- [ ] Enemies attacks seem to come x2 times
 - [ ] Implement attacking (defense) computations (add some randomness)
-- [ ] Add randomness in `Enemy` range, so that you are not doomed to be followed when spotted
-- [ ] Add indication that `Enemy` spotted you and it is following
-- [ ] Do not move on top of `Resources` (only `Coins`)
-- [ ] Allow short time between each player movement (not possible to keep button pressed and move indefinitely)
-- [ ] `Resources`, `Coins`, and stairs have similar structure, worth refactoring from same model?
-- [ ] Allow each `Coin` to have a different value (new `Coin` class with a random value assigned when creating the level)

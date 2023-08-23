@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CrystalResource" load_steps=2 format=3 uid="uid://bgpwagt73gq6t"]
+
+[ext_resource type="Script" path="res://entities/crystal_resource.gd" id="1_6tehb"]
+
+[resource]
+script = ExtResource("1_6tehb")
+name = "speed"
+weight = 3
+texture_index = 1

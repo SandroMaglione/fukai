@@ -20,5 +20,4 @@ func execute_attack(direction: Vector2) -> void:
 
 func _attack_completed() -> void:
 	is_attacking = false
-	
 	attack_completed.emit()

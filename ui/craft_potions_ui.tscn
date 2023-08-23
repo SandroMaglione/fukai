@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bygjktjb3h8i3"]
+
+[ext_resource type="PackedScene" uid="uid://c0w7iu8pa867p" path="res://ui/potion_craft_ui.tscn" id="1_qxu3v"]
+[ext_resource type="PackedScene" uid="uid://e62u4323kgmu" path="res://ui/crystal_ui.tscn" id="2_rvk75"]
+
+[node name="CraftPotionsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="PotionCraftUI" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qxu3v")]
+layout_mode = 2
+
+[node name="PotionCraftUI2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qxu3v")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CrystalUI" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_rvk75")]
+layout_mode = 2
+
+[node name="CrystalUI2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_rvk75")]
+layout_mode = 2
