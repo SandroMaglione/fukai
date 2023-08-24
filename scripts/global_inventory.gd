@@ -17,6 +17,8 @@ const crystals: Dictionary = {
 
 signal updated_inventory()
 
+var in_game_potions: Dictionary = {}
+
 func _ready():
 	inventory = initial_inventory
 	

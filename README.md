@@ -256,8 +256,8 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] Turn based system with actors speed
 - [x] Allow use `Potion` to gain back health
 - [x] Allow crafting (selection of what to create, each showing how much and what `Crystal` it costs)
-- [ ] Remove "local" `Inventory`, all `Crystals` collected go in global
-- [ ] Screen to prepare `Inventory` to go into dungeon
+- [x] Remove "local" `Inventory`, all `Crystals` collected go in global
+- [x] Screen to prepare `Inventory` to go into dungeon
   - Display all `Potions` available and their quantity
   - Click on `Potion` to add x1 to `Inventory`
   - Click on `Potion` in `Inventory` to remove x1 from `Inventory`
