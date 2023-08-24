@@ -26,7 +26,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="AssignStatPointButton/VBoxContainer"]
+[node name="StatTexture" type="TextureRect" parent="AssignStatPointButton/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("1_c6kyn")

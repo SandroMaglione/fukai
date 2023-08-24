@@ -113,3 +113,6 @@ func _on_enter_dungeon_button_pressed():
 
 func _on_craft_potions_button_pressed():
 	get_tree().change_scene_to_file("res://ui/craft_potions_ui.tscn")
+
+func _on_player_stats_button_pressed():
+	get_tree().change_scene_to_file("res://ui/player_stats_ui.tscn")

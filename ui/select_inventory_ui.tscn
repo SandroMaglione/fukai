@@ -82,10 +82,16 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="CraftPotionsButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(100, 2.08165e-12)
+custom_minimum_size = Vector2(80, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
 text = "Craft potions"
+
+[node name="PlayerStatsButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(80, 2.08165e-12)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Player stats"
 
 [node name="EnterDungeonButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HFlowContainer"]
 layout_mode = 2
@@ -94,4 +100,5 @@ theme_override_font_sizes/font_size = 6
 text = "Enter dungeon"
 
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HFlowContainer/CraftPotionsButton" to="." method="_on_craft_potions_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HFlowContainer/PlayerStatsButton" to="." method="_on_player_stats_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HFlowContainer/EnterDungeonButton" to="." method="_on_enter_dungeon_button_pressed"]
