@@ -20,4 +20,5 @@ func get_damage(damage: int) -> void:
 	health -= damage
 	
 	if health <= 0:
+		PlayerExperience.on_enemy_defeated(self)
 		queue_free()

@@ -271,7 +271,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] Store current `Tier` in global script
 - [x] Complete `Tier` when stepping on top of stairs
   - Add +1 to global `Tier`
-- [ ] Player leveling system (`Experience` points and grow next level)
+- [x] Player leveling system (`Experience` points and grow next level)
   - Add global player stats (with experience points)
   - Add experience points after each `Enemy` defeated
   - Add experience points when `Tier` completed

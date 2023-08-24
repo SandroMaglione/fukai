@@ -53,6 +53,7 @@ func step_on_stairs(body: TileMap, coords: Vector2i) -> void:
 	var source_id = body.get_cell_source_id(Constants.STAIRS_LAYER_ID, coords)
 	if source_id != -1:
 		TiersSystem.complete_tier()
+		PlayerExperience.on_tier_completed()
 		get_tree().change_scene_to_file("res://ui/select_inventory_ui.tscn")
 
 func collect_crystal(body: TileMap, coords: Vector2i) -> void:

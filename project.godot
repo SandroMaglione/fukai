@@ -21,6 +21,7 @@ Constants="*res://scripts/constants.gd"
 BattleHelper="*res://scripts/battle_helper.gd"
 GlobalInventory="*res://scripts/global_inventory.gd"
 TiersSystem="*res://scripts/tiers_system.gd"
+PlayerExperience="*res://scripts/player_experience.gd"
 
 [display]
 
