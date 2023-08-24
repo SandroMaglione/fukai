@@ -296,4 +296,5 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 ## TODO
 - [ ] Enemies can move in the same position, since no collision is detected and they start moving at the same time
 - [ ] Enemies attacks seem to come x2 times
-- [ ] Implement attacking (defense) computations (add some randomness)
+- [ ] Implement attack and defense computations (add some randomness)
+- [ ] Implement experience points and leveling computations
