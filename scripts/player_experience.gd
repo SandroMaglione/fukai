@@ -7,7 +7,7 @@ var player_stats: ActorResource
 var current_level: int = 1
 var experience_before_next_level: int = 1000
 
-var available_skill_points: int = 0
+var available_skill_points: int = 10
 
 func _ready():
 	player_stats = initial_player_actor_resource

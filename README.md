@@ -276,10 +276,9 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
   - Add experience points after each `Enemy` defeated
   - Add experience points when `Tier` completed
 - [x] Move `Player` stats to global PlayerExperience script
-- [ ] Screen to add gained point to player stats
+- [x] Screen to add gained point to player stats
     - Display grid with all stats and their current points assigned
     - Allow to click on a stat to add the point
-    - Click confirm to add the point to the selected stat (global PlayerExperience)
 - [ ] Generate dungeon based on current `Tier`
   - Spawn random `Enemy` concrete instances (based on current `Tier`)
   - Spawn random stairs position at every round

@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2bsqmjj0tgyj"]
+
+[ext_resource type="PackedScene" uid="uid://cauja3vbddl3x" path="res://ui/single_player_stat_ui.tscn" id="1_470bp"]
+[ext_resource type="Script" path="res://ui/player_stats_ui.gd" id="1_vywx6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s07y5"]
+line_spacing = 2.08165e-12
+font_size = 9
+
+[node name="PlayerStatsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vywx6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="HealthStat" parent="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer" instance=ExtResource("1_470bp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SpeedStat" parent="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer" instance=ExtResource("1_470bp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AttackStat" parent="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer" instance=ExtResource("1_470bp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefenseStat" parent="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer" instance=ExtResource("1_470bp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PointsToAssignLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Points to assign: 0"
+label_settings = SubResource("LabelSettings_s07y5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComeBackButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Back to inventory"
+
+[connection signal="selected_assign_stat" from="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer/HealthStat" to="." method="_on_health_stat_selected_assign_stat"]
+[connection signal="selected_assign_stat" from="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer/SpeedStat" to="." method="_on_speed_stat_selected_assign_stat"]
+[connection signal="selected_assign_stat" from="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer/AttackStat" to="." method="_on_attack_stat_selected_assign_stat"]
+[connection signal="selected_assign_stat" from="ColorRect/MarginContainer/VBoxContainer/CenterContainer/GridContainer/DefenseStat" to="." method="_on_defense_stat_selected_assign_stat"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ComeBackButton" to="." method="_on_come_back_button_pressed"]
