@@ -45,4 +45,14 @@ func collect_crystal(crystal_resource: CrystalResource) -> void:
 		inventory.crystals[crystal_resource.name] = 1
 
 func on_use_potion(potion: PotionResource) -> void:
-	pass
+	if inventory.potions.has(potion.name):
+		if inventory.potions[potion.name] == 1:
+			inventory.potions.erase(potion.name)
+		else:
+			inventory.potions[potion.name] -= 1
+	
+	if in_game_potions.has(potion.name):
+		if in_game_potions[potion.name] == 1:
+			in_game_potions.erase(potion.name)
+		else:
+			in_game_potions[potion.name] -= 1

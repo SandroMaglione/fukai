@@ -7,7 +7,11 @@ var enemies_in_movement: int = 0
 func _ready():
 	var actors = get_actors()
 	for actor in actors:
-		next_turn_counter_total += actor.turn_actor_resource.speed
+		if actor is Player:
+			next_turn_counter_total += PlayerExperience.player_stats.speed
+		elif actor is Enemy:
+			next_turn_counter_total += actor.enemy_resource.speed
+			
 		actor.turn_completed.connect(_on_turn_completed)
 		
 		if actor is Player:
@@ -16,7 +20,10 @@ func _ready():
 func choose_next_turn() -> void:
 	var actors = get_actors()
 	for actor in actors:
-		actor.next_turn_counter += actor.turn_actor_resource.speed
+		if actor is Player:
+			actor.next_turn_counter += PlayerExperience.player_stats_power_up().speed
+		elif actor is Enemy:
+			actor.next_turn_counter += actor.enemy_resource.speed
 	
 	var player = get_player()
 	if player.next_turn_counter > next_turn_counter_total:
@@ -43,6 +50,7 @@ func _on_turn_completed(actor: TurnActor) -> void:
 			choose_next_turn()
 			
 	elif actor is Player:
+		PlayerExperience.on_player_turn_completed()
 		choose_next_turn()
 			
 func get_player() -> Player:

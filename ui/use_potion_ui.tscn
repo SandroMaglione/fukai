@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfmhfqb8crasu"]
+
+[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_o78kx"]
+[ext_resource type="Script" path="res://ui/use_potion_ui.gd" id="2_k5owf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7j2d2"]
+line_spacing = 2.08165e-12
+font_size = 5
+
+[node name="UsePotionUI" type="TextureButton"]
+custom_minimum_size = Vector2(15, 15)
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_vertical = 8
+texture_normal = ExtResource("1_o78kx")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_k5owf")
+
+[node name="PotionAmountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "x0
+"
+label_settings = SubResource("LabelSettings_7j2d2")
+horizontal_alignment = 2

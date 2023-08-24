@@ -279,15 +279,15 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] Screen to add gained point to player stats
     - Display grid with all stats and their current points assigned
     - Allow to click on a stat to add the point
+- [x] Add buttons in game to use potions in `Inventory` (with numbers keyboard shortcuts)
+  - Remove `Potion` from global `Inventory` when used
+- [x] Implement all potions abilities
+  - Stats up
+  - ✏️ Invisible
+  - ✏️ Thunder
 - [ ] Generate dungeon based on current `Tier`
   - Spawn random `Enemy` concrete instances (based on current `Tier`)
   - Spawn random stairs position at every round
-- [ ] Add buttons in game to use potions in `Inventory` (with numbers keyboard shortcuts)
-  - Remove `Potion` from global `Inventory` when used
-- [ ] Implement all potions abilities
-  - Stats up
-  - Invisible
-  - Thunder
 - [ ] ✏️ Create dungeon (connect rooms concrete instances)
   - Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
 
