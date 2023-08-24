@@ -265,9 +265,9 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
   - Add button to go to crafting screen
   - Add button to enter dungeon with selected `Inventory`
   - ✏️ Allow to select dungeon `Tier`
-- [ ] Killing player when health zero
+- [x] Killing player when health zero
   - Come back to prepare `Inventory` screen
-  - ✏️ Store previous `Inventory` selection to use as autocomplete for next round
+  - Store previous `Inventory` selection to use as autocomplete for next round
 - [ ] Complete `Tier` when stepping on top of stairs
   - Add +1 to global `Tier`
 - [ ] Player leveling system (`Experience` points and grow next level)

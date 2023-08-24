@@ -11,18 +11,47 @@ var potions_inventory: Dictionary = {}
 var potions_inventory_ui_list: Dictionary = {}
 
 func _ready():
-	space_available_label.text = "0 out of %d" % [GlobalInventory.inventory.size]
 	var potion_groups = GlobalInventory.inventory.potions
 	
-	for potion in potion_groups:
-		var ui_instance = potion_selection_ui.instantiate() as PotionSelectionUI
-		potions_available_list.add_child(ui_instance)
-		ui_instance.potion_selected.connect(_on_potion_selected)
+	if GlobalInventory.in_game_potions.size() > 0:
+		for potion in GlobalInventory.in_game_potions:
+			var potion_resource: PotionResource = GlobalInventory.potions[potion]
+			var quantity = GlobalInventory.in_game_potions[potion]
+			
+			potions_inventory[potion_resource.name] = quantity
+			
+			var ui_instance = potion_selected_ui.instantiate() as PotionSelectedUI
+			potions_selected_list.add_child(ui_instance)
+			
+			ui_instance.unselected_potion.connect(_on_potion_unselected)
+			
+			ui_instance.potion_resource = potion_resource
+			ui_instance.potion_quantity_value = quantity
+			
+			potions_inventory_ui_list[potion_resource.name] = ui_instance
 		
-		var potion_resource: PotionResource = GlobalInventory.potions[potion]
-		ui_instance.potion_resource = potion_resource
+		for potion in potion_groups:
+			var ui_instance = potion_selection_ui.instantiate() as PotionSelectionUI
+			potions_available_list.add_child(ui_instance)
+			ui_instance.potion_selected.connect(_on_potion_selected)
+			
+			var potion_resource: PotionResource = GlobalInventory.potions[potion]
+			ui_instance.potion_resource = potion_resource
 
-		ui_instance.potion_quantity_value = potion_groups[potion]
+			var quantity_selected = 0 if not GlobalInventory.in_game_potions.has(potion_resource.name) else GlobalInventory.in_game_potions[potion_resource.name]
+			ui_instance.potion_quantity_value = potion_groups[potion] - quantity_selected
+	else:
+		for potion in potion_groups:
+			var ui_instance = potion_selection_ui.instantiate() as PotionSelectionUI
+			potions_available_list.add_child(ui_instance)
+			ui_instance.potion_selected.connect(_on_potion_selected)
+			
+			var potion_resource: PotionResource = GlobalInventory.potions[potion]
+			ui_instance.potion_resource = potion_resource
+
+			ui_instance.potion_quantity_value = potion_groups[potion]
+		
+	_update_space_available()
 
 func _on_potion_selected(potion_resource: PotionResource) -> void:
 	if _total_space_occupied() + potion_resource.weight <= GlobalInventory.inventory.size:

@@ -40,8 +40,7 @@ func _process(_delta):
 						var node_owner = collider.owner
 						if node_owner is Enemy:
 							var damage = BattleHelper.player_attack(player_resource, node_owner.enemy_resource)
-							node_owner.get_damage(damage)
-							attack_movement.execute_attack(input_direction)
+							attack_movement.execute_attack(input_direction, node_owner, damage)
 
 func _on_grid_movement_collided(body, movement):
 	if body is TileMap:
@@ -69,7 +68,7 @@ func get_damage(damage: int) -> void:
 	health -= damage
 	
 	if health <= 0:
-		print("Done")
+		get_tree().change_scene_to_file("res://ui/select_inventory_ui.tscn")
 		
 func _on_grid_movement_movement_completed():
 	turn_completed.emit(self)
