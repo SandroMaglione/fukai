@@ -51,3 +51,8 @@ func _on_update_inventory() -> void:
 	for ui_crystal in inventory_crystals:
 		if crystal_groups.has(ui_crystal.crystal_resource.name):
 			ui_crystal.crystal_quantity_value = crystal_groups[ui_crystal.crystal_resource.name]
+
+
+
+func _on_come_back_button_pressed():
+	get_tree().change_scene_to_file("res://ui/select_inventory_ui.tscn")

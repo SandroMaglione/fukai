@@ -3,11 +3,13 @@ class_name PotionCraftUI
 
 @onready var potion_quantity = %PotionQuantity
 @onready var crystal_requirements_list = %CrystalRequirementsList
+@onready var potion_texture = %PotionTexture
 
 const crystal_ui = preload("res://ui/crystal_ui.tscn")
 
 var potion_resource: PotionResource:
 	set(value):
+		potion_texture.self_modulate = value.color_modulate
 		assign_requirements(value.craft_requirements)
 		potion_resource = value
 
@@ -23,6 +25,7 @@ func assign_requirements(requirements: Dictionary) -> void:
 		ui_instance.custom_minimum_size = Vector2.ONE * 10
 		crystal_requirements_list.add_child(ui_instance)
 		
+		ui_instance.crystal_resource = GlobalInventory.crystals[requirement]
 		ui_instance.crystal_quantity_value = requirements[requirement]
 		
 func _on_potion_select_button_pressed():

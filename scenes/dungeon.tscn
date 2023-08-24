@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cex7v755m2vp5"]
+[gd_scene load_steps=8 format=3 uid="uid://cex7v755m2vp5"]
 
 [ext_resource type="PackedScene" uid="uid://dq1yxk0cy8e7f" path="res://entities/player.tscn" id="1_xccqg"]
 [ext_resource type="PackedScene" uid="uid://ykgm2mu1vo0o" path="res://entities/enemy.tscn" id="2_5lj7b"]
@@ -6,23 +6,6 @@
 [ext_resource type="Script" path="res://entities/enemy_resource.gd" id="3_ea45l"]
 [ext_resource type="PackedScene" uid="uid://5skkh3s1ob8n" path="res://scenes/turn_based_movement.tscn" id="5_fafho"]
 [ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="7_5v23e"]
-
-[sub_resource type="GDScript" id="GDScript_4kyli"]
-script/source = "extends Resource
-class_name TurnActorResource
-
-@export var speed: int = 1
-@export var health: int = 10
-@export var attack: int = 1
-@export var defense: int = 1
-"
-
-[sub_resource type="Resource" id="Resource_spru7"]
-script = SubResource("GDScript_4kyli")
-speed = 4
-health = 10
-attack = 1
-defense = 1
 
 [sub_resource type="Resource" id="Resource_ki62v"]
 script = ExtResource("3_ea45l")
@@ -43,7 +26,6 @@ layer_3/tile_data = PackedInt32Array(1048603, 0, 3, 262159, 0, 3, 327695, 0, 3, 
 
 [node name="Player" parent="." instance=ExtResource("1_xccqg")]
 position = Vector2(188, 76)
-turn_actor_resource = SubResource("Resource_spru7")
 
 [node name="Enemy" parent="." instance=ExtResource("2_5lj7b")]
 position = Vector2(188, 52)

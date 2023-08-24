@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_y1vpt")
 name = "speed"
-texture_index = 0
+color_modulate = Color(0.811765, 1, 0.439216, 1)
 weight = 3
+description = "Move faster for a while"
+craft_requirements = {}

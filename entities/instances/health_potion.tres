@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_ehn54")
 name = "health"
-texture_index = 0
+color_modulate = Color(0.894118, 0.192157, 0.32549, 1)
 weight = 2
+description = "Recover +3 health"
 craft_requirements = {
 "red": 3,
 "yellow": 1

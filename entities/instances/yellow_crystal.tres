@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_6tehb")
 name = "yellow"
-texture_index = 1
+color_modulate = Color(0.654902, 0.941176, 0.435294, 1)

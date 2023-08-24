@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://diedtrim5j2u"]
 
 [ext_resource type="Script" path="res://ui/potion_selected_ui.gd" id="1_3a24b"]
-[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_hwkxe"]
+[ext_resource type="Texture2D" uid="uid://dydeh3uml7diq" path="res://assets/potion-sprite.png" id="2_ygy8v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_elcwq"]
 line_spacing = 2.08165e-12
@@ -21,14 +21,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="UnselectPotion"]
+[node name="PotionTexture" type="TextureRect" parent="UnselectPotion"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hwkxe")
+texture = ExtResource("2_ygy8v")
 expand_mode = 3
 stretch_mode = 5
 

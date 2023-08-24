@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://g2pp4f7j1hbe"]
 
-[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_gyo3u"]
 [ext_resource type="Script" path="res://ui/potion_selection_ui.gd" id="1_m47nr"]
+[ext_resource type="Texture2D" uid="uid://dydeh3uml7diq" path="res://assets/potion-sprite.png" id="2_b4vlr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fxa48"]
 line_spacing = 2.08165e-12
@@ -35,14 +35,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="PotionSelectionButton/VBoxContainer"]
+[node name="PotionTexture" type="TextureRect" parent="PotionSelectionButton/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 30)
 layout_mode = 2
-texture = ExtResource("1_gyo3u")
+texture = ExtResource("2_b4vlr")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="PotionSelectionButton/VBoxContainer"]
+[node name="PotionDescriptionLabel" type="Label" parent="PotionSelectionButton/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Some description of the craft"
 label_settings = SubResource("LabelSettings_fxa48")

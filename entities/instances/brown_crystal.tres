@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_kao7j")
 name = "brown"
-texture_index = 2
+color_modulate = Color(0.235294, 0.196078, 0.2, 1)
