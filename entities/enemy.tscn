@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://ykgm2mu1vo0o"]
 
 [ext_resource type="Script" path="res://entities/enemy.gd" id="1_pv75r"]
-[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_y0jeg"]
 [ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="2_11sgw"]
+[ext_resource type="Texture2D" uid="uid://beg1n23vchi24" path="res://entities/player-16x16.png" id="2_riwy1"]
 [ext_resource type="Script" path="res://entities/roaming_enemy_movement.gd" id="3_e2tlr"]
 [ext_resource type="Script" path="res://entities/chase_enemy_movement.gd" id="4_fykiq"]
 [ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_h00yb"]
@@ -14,7 +14,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_y0jeg")
+"texture": ExtResource("2_riwy1")
 }],
 "loop": true,
 "name": &"default",
@@ -22,7 +22,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddnc6"]
-size = Vector2(8, 8)
+size = Vector2(16, 16)
 
 [node name="Enemy" type="Node2D" groups=["enemy", "turn_moving"]]
 script = ExtResource("1_pv75r")

@@ -236,9 +236,20 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 ## Implementation
 
 ### Art
-8x8 pixel art tileset. Assets all 8x8.
+16x16 pixel art.
 
-> ✏️ Higher resolution for crafting and buying "shop"
+- [ ] Crystal (+ animation)
+- [ ] Potion 
+- [ ] Player (+ animations)
+- [ ] Enemies (more than one, + animation)
+- [ ] Player health icon
+- [ ] Player speed icon
+- [ ] Player attack icon
+- [ ] Player defense icon
+- [ ] Tilemap
+  - Ground tiles with player controls input
+- [ ] Dialog
+- [ ] Font
 
 ### Roadmap
 - [x] Player and `Enemies` movement (4 directions)
@@ -285,6 +296,9 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
   - Stats up
   - ✏️ Invisible
   - ✏️ Thunder
+- [ ] Click "esc" to leave the dungeon
+- [ ] Add indication of controls to ground tiles in first `Tier`
+- [ ] Add label indication in UIs to tell what to do in that screen
 - [ ] Generate dungeon based on current `Tier`
   - Spawn random `Enemy` concrete instances (based on current `Tier`)
   - Spawn random stairs position at every round

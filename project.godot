@@ -31,6 +31,11 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://ui/default_theme.tres"
+theme/custom_font="res://assets/fonts/type_writer.ttf"
+
 [input]
 
 move_left={

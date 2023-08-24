@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0w7iu8pa867p"]
 
 [ext_resource type="Script" path="res://ui/potion_craft_ui.gd" id="1_ya43p"]
-[ext_resource type="Texture2D" uid="uid://dydeh3uml7diq" path="res://assets/potion-sprite.png" id="2_bsqfp"]
+[ext_resource type="Texture2D" uid="uid://bavotslyxvt2d" path="res://entities/potion-16x16.png" id="2_ncn8r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul5i"]
 bg_color = Color(0.839216, 0.509804, 0.184314, 1)
@@ -36,7 +36,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 30)
 layout_mode = 2
-texture = ExtResource("2_bsqfp")
+texture = ExtResource("2_ncn8r")
 expand_mode = 3
 stretch_mode = 5
 

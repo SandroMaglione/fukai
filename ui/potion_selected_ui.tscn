@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://diedtrim5j2u"]
 
 [ext_resource type="Script" path="res://ui/potion_selected_ui.gd" id="1_3a24b"]
-[ext_resource type="Texture2D" uid="uid://dydeh3uml7diq" path="res://assets/potion-sprite.png" id="2_ygy8v"]
+[ext_resource type="Texture2D" uid="uid://bavotslyxvt2d" path="res://entities/potion-16x16.png" id="2_ogf30"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_elcwq"]
 line_spacing = 2.08165e-12
@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ygy8v")
+texture = ExtResource("2_ogf30")
 expand_mode = 3
 stretch_mode = 5
 

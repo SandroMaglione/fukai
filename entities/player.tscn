@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dq1yxk0cy8e7f"]
 
-[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_0xasj"]
 [ext_resource type="Script" path="res://entities/player.gd" id="1_gc0gy"]
 [ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="3_c41b5"]
+[ext_resource type="Texture2D" uid="uid://beg1n23vchi24" path="res://entities/player-16x16.png" id="3_tblt5"]
 [ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_owa55"]
 [ext_resource type="PackedScene" uid="uid://csmpgwmie1h1x" path="res://ui/health_bar.tscn" id="6_0n600"]
 
@@ -10,7 +10,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0xasj")
+"texture": ExtResource("3_tblt5")
 }],
 "loop": true,
 "name": &"default",
@@ -18,12 +18,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dar3l"]
-size = Vector2(8, 8)
+size = Vector2(16, 16)
 
 [node name="Player" type="Node2D" groups=["player", "turn_moving"]]
 script = ExtResource("1_gc0gy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 drag_horizontal_enabled = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dydeh3uml7diq"
-path="res://.godot/imported/potion-sprite.png-6287f5ce6e1399351c1600bb198ade3e.ctex"
+uid="uid://cc8xw3xl2msux"
+path="res://.godot/imported/crystal-16x16.png-fc7c8a14eeefc1e96aa225741375f506.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/potion-sprite.png"
-dest_files=["res://.godot/imported/potion-sprite.png-6287f5ce6e1399351c1600bb198ade3e.ctex"]
+source_file="res://assets/crystal-16x16.png"
+dest_files=["res://.godot/imported/crystal-16x16.png-fc7c8a14eeefc1e96aa225741375f506.ctex"]
 
 [params]
 

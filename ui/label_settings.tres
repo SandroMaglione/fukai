@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cv6uwec08n7wv"]
+
+[ext_resource type="FontFile" uid="uid://5cw368x4p5v0" path="res://assets/fonts/type_writer.ttf" id="1_pwa0x"]
+
+[resource]
+line_spacing = 2.08165e-12
+font = ExtResource("1_pwa0x")
+font_size = 10

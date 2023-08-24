@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 class_name CrystalUI
 
 @onready var crystal_quantity = %CrystalQuantity
