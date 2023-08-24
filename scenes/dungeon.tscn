@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cex7v755m2vp5"]
+[gd_scene load_steps=13 format=3 uid="uid://cex7v755m2vp5"]
 
 [ext_resource type="PackedScene" uid="uid://dq1yxk0cy8e7f" path="res://entities/player.tscn" id="1_xccqg"]
 [ext_resource type="PackedScene" uid="uid://ykgm2mu1vo0o" path="res://entities/enemy.tscn" id="2_5lj7b"]
@@ -31,36 +31,6 @@ health = 10
 attack = 1
 defense = 1
 
-[sub_resource type="Resource" id="Resource_x4si1"]
-script = ExtResource("3_ea45l")
-movement_range = 10
-speed = 2
-health = 10
-attack = 1
-defense = 1
-
-[sub_resource type="Resource" id="Resource_ah4c0"]
-script = ExtResource("3_mpovp")
-speed = 2
-health = 10
-attack = 1
-defense = 1
-
-[sub_resource type="Resource" id="Resource_6cwan"]
-script = ExtResource("3_ea45l")
-movement_range = 3
-speed = 2
-health = 10
-attack = 1
-defense = 1
-
-[sub_resource type="Resource" id="Resource_i6i7f"]
-script = ExtResource("3_mpovp")
-speed = 10
-health = 10
-attack = 1
-defense = 1
-
 [sub_resource type="Resource" id="Resource_v20b2"]
 script = ExtResource("8_pay84")
 size = 10
@@ -85,16 +55,6 @@ turn_actor_resource = SubResource("Resource_spru7")
 position = Vector2(188, 52)
 enemy_resource = SubResource("Resource_ki62v")
 turn_actor_resource = SubResource("Resource_tm7am")
-
-[node name="Enemy2" parent="." instance=ExtResource("2_5lj7b")]
-position = Vector2(180, 132)
-enemy_resource = SubResource("Resource_x4si1")
-turn_actor_resource = SubResource("Resource_ah4c0")
-
-[node name="Enemy3" parent="." instance=ExtResource("2_5lj7b")]
-position = Vector2(180, 92)
-enemy_resource = SubResource("Resource_6cwan")
-turn_actor_resource = SubResource("Resource_i6i7f")
 
 [node name="TurnBasedMovement" parent="." instance=ExtResource("5_fafho")]
 

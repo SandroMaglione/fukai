@@ -52,7 +52,8 @@ func _on_grid_movement_collided(body, movement):
 func step_on_stairs(body: TileMap, coords: Vector2i) -> void:
 	var source_id = body.get_cell_source_id(Constants.STAIRS_LAYER_ID, coords)
 	if source_id != -1:
-		print("Stairs")
+		TiersSystem.complete_tier()
+		get_tree().change_scene_to_file("res://ui/select_inventory_ui.tscn")
 
 func collect_crystal(body: TileMap, coords: Vector2i) -> void:
 	var tile_data = body.get_cell_tile_data(Constants.CRYSTALS_LAYER_ID, coords)

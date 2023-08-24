@@ -268,28 +268,28 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 - [x] Killing player when health zero
   - Come back to prepare `Inventory` screen
   - Store previous `Inventory` selection to use as autocomplete for next round
-- [ ] Complete `Tier` when stepping on top of stairs
+- [x] Store current `Tier` in global script
+- [x] Complete `Tier` when stepping on top of stairs
   - Add +1 to global `Tier`
 - [ ] Player leveling system (`Experience` points and grow next level)
   - Add global player stats (with experience points)
   - Add experience points after each `Enemy` defeated
   - Add experience points when `Tier` completed
-  - Show dialog to add gained point to player stats
+- [ ] Screen to add gained point to player stats
     - Display grid with all stats and their current points assigned
     - Allow to click on a stat to add the point
     - Click confirm to add the point to the selected stat
-- [ ] ✏️ Create dungeon (connect rooms concrete instances)
-  - Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
-  - Generate room concrete instance (based on current `Tier`)
-- [ ] Spawn random `Enemy` concrete instances (based on current `Tier`)
-- [ ] Spawn random stairs position at every round
-- [ ] Store current `Tier` in global script
+- [ ] Generate dungeon based on current `Tier`
+  - Spawn random `Enemy` concrete instances (based on current `Tier`)
+  - Spawn random stairs position at every round
 - [ ] Add buttons in game to use potions in `Inventory` (with numbers keyboard shortcuts)
   - Remove `Potion` from global `Inventory` when used
 - [ ] Implement all potions abilities
   - Stats up
   - Invisible
   - Thunder
+- [ ] ✏️ Create dungeon (connect rooms concrete instances)
+  - Room shared properties (locations of `Enemies`, `Resources`, `Coins`, plus start and end positions)
 
 ***
 
