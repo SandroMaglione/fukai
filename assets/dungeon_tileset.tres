@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://bmv10ynprlwys"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://bmv10ynprlwys"]
 
 [ext_resource type="Texture2D" uid="uid://m5m0aah4wkng" path="res://assets/tileset.png" id="1_3v5wt"]
-[ext_resource type="Texture2D" uid="uid://dchaq826q8xxd" path="res://assets/resources-tileset.png" id="1_amucd"]
 [ext_resource type="Resource" uid="uid://bhyng04eap3j1" path="res://entities/instances/red_crystal.tres" id="2_1khl5"]
 [ext_resource type="Resource" uid="uid://bgpwagt73gq6t" path="res://entities/instances/yellow_crystal.tres" id="3_hm250"]
 [ext_resource type="Resource" uid="uid://bvxyacw3lhrjn" path="res://entities/instances/brown_crystal.tres" id="4_holqw"]
+[ext_resource type="Texture2D" uid="uid://iv3qv4yrd22w" path="res://assets/crystal-sprite.png" id="7_5y5cg"]
 [ext_resource type="Texture2D" uid="uid://bucegg3no52h0" path="res://assets/sprites/stairs-sprite.png" id="7_6y765"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_616mf"]
@@ -230,44 +230,6 @@ texture_region_size = Vector2i(8, 8)
 0:3/0/physics_layer_3/linear_velocity = Vector2(0, 0)
 0:3/0/physics_layer_3/angular_velocity = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akmeq"]
-resource_name = "crystal"
-texture = ExtResource("1_amucd")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_1/angular_velocity = 0.0
-0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_2/angular_velocity = 0.0
-0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_3/angular_velocity = 0.0
-0:0/0/custom_data_0 = ExtResource("2_1khl5")
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_1/angular_velocity = 0.0
-1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-1:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_2/angular_velocity = 0.0
-1:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_3/angular_velocity = 0.0
-1:0/0/custom_data_0 = ExtResource("3_hm250")
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_1/angular_velocity = 0.0
-2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-2:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_2/angular_velocity = 0.0
-2:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_3/angular_velocity = 0.0
-2:0/0/custom_data_0 = ExtResource("4_holqw")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rohmp"]
 resource_name = "stairs"
 texture = ExtResource("7_6y765")
@@ -283,6 +245,57 @@ texture_region_size = Vector2i(8, 8)
 0:0/0/physics_layer_3/angular_velocity = 0.0
 0:0/0/physics_layer_3/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kas7"]
+resource_name = "red_crystal"
+texture = ExtResource("7_5y5cg")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/modulate = Color(0.694118, 0.243137, 0.32549, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/custom_data_0 = ExtResource("2_1khl5")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqljw"]
+resource_name = "yellow_crystal"
+texture = ExtResource("7_5y5cg")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/modulate = Color(0.654902, 0.941176, 0.435294, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/custom_data_0 = ExtResource("3_hm250")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kw2m4"]
+resource_name = "brown_crystal"
+texture = ExtResource("7_5y5cg")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/modulate = Color(0.235294, 0.196078, 0.2, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/custom_data_0 = ExtResource("4_holqw")
+
 [resource]
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 2
@@ -295,5 +308,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 custom_data_layer_0/name = "collect_item_resource"
 custom_data_layer_0/type = 24
 sources/0 = SubResource("TileSetAtlasSource_616mf")
-sources/1 = SubResource("TileSetAtlasSource_akmeq")
 sources/3 = SubResource("TileSetAtlasSource_rohmp")
+sources/4 = SubResource("TileSetAtlasSource_0kas7")
+sources/5 = SubResource("TileSetAtlasSource_vqljw")
+sources/6 = SubResource("TileSetAtlasSource_kw2m4")
