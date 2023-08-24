@@ -275,7 +275,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
   - Add global player stats (with experience points)
   - Add experience points after each `Enemy` defeated
   - Add experience points when `Tier` completed
-- [ ] Move `Player` stats to global PlayerExperience script
+- [x] Move `Player` stats to global PlayerExperience script
 - [ ] Screen to add gained point to player stats
     - Display grid with all stats and their current points assigned
     - Allow to click on a stat to add the point

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cex7v755m2vp5"]
+[gd_scene load_steps=10 format=3 uid="uid://cex7v755m2vp5"]
 
 [ext_resource type="PackedScene" uid="uid://dq1yxk0cy8e7f" path="res://entities/player.tscn" id="1_xccqg"]
 [ext_resource type="PackedScene" uid="uid://ykgm2mu1vo0o" path="res://entities/enemy.tscn" id="2_5lj7b"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://entities/enemy_resource.gd" id="3_ea45l"]
 [ext_resource type="Script" path="res://scripts/turn_actor_resource.gd" id="3_mpovp"]
 [ext_resource type="PackedScene" uid="uid://5skkh3s1ob8n" path="res://scenes/turn_based_movement.tscn" id="5_fafho"]
-[ext_resource type="PackedScene" uid="uid://bfh1whnls0piw" path="res://ui/inventory_in_game.tscn" id="5_yntmr"]
-[ext_resource type="Script" path="res://scripts/inventory.gd" id="8_pay84"]
 
 [sub_resource type="Resource" id="Resource_spru7"]
 script = ExtResource("3_mpovp")
@@ -31,12 +29,6 @@ health = 10
 attack = 1
 defense = 1
 
-[sub_resource type="Resource" id="Resource_v20b2"]
-script = ExtResource("8_pay84")
-size = 10
-crystals = {}
-potions = {}
-
 [node name="Dungeon" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("2_hwc53")]
@@ -46,9 +38,8 @@ layer_2/tile_data = PackedInt32Array(1114139, 3, 0)
 layer_3/z_index = -1
 layer_3/tile_data = PackedInt32Array(1048603, 0, 3, 262159, 0, 3, 327695, 0, 3, 393231, 0, 3, 262160, 0, 3, 327696, 0, 3, 393232, 0, 3, 262161, 0, 3, 327697, 0, 3, 393233, 0, 3, 262162, 0, 3, 327698, 0, 3, 393234, 0, 3, 262163, 0, 3, 327699, 0, 3, 393235, 0, 3, 262164, 0, 3, 327700, 0, 3, 393236, 0, 3, 262165, 0, 3, 327701, 0, 3, 393237, 0, 3, 262166, 0, 3, 327702, 0, 3, 393238, 0, 3, 262167, 0, 3, 327703, 0, 3, 393239, 0, 3, 458767, 0, 3, 524303, 0, 3, 589839, 0, 3, 458768, 0, 3, 524304, 0, 3, 589840, 0, 3, 458769, 0, 3, 524305, 0, 3, 589841, 0, 3, 524306, 0, 3, 589842, 0, 3, 524307, 0, 3, 589843, 0, 3, 524308, 0, 3, 589844, 0, 3, 524309, 0, 3, 589845, 0, 3, 524310, 0, 3, 589846, 0, 3, 524311, 0, 3, 589847, 0, 3, 655380, 0, 3, 720916, 0, 3, 786452, 0, 3, 851988, 0, 3, 917524, 0, 3, 655381, 0, 3, 720917, 0, 3, 786453, 0, 3, 851989, 0, 3, 917525, 0, 3, 851990, 0, 3, 720918, 0, 3, 917520, 0, 3, 983056, 0, 3, 917521, 0, 3, 983057, 0, 3, 917522, 0, 3, 983058, 0, 3, 917523, 0, 3, 983059, 0, 3, 983060, 0, 3, 1048594, 0, 3, 1114130, 0, 3, 1179666, 0, 3, 1245202, 0, 3, 1048595, 0, 3, 1114131, 0, 3, 1179667, 0, 3, 1245203, 0, 3, 1048596, 0, 3, 1114132, 0, 3, 1179668, 0, 3, 1245204, 0, 3, 1245205, 0, 3, 1245206, 0, 3, 1245207, 0, 3, 1245208, 0, 3, 1048598, 0, 3, 1114134, 0, 3, 1179670, 0, 3, 1048599, 0, 3, 1114135, 0, 3, 1179671, 0, 3, 1048600, 0, 3, 1114136, 0, 3, 1179672, 0, 3, 1048601, 0, 3, 1114137, 0, 3, 1048602, 0, 3, 1114138, 0, 3, 1114139, 0, 3)
 
-[node name="Player" parent="." node_paths=PackedStringArray("inventory_in_game") instance=ExtResource("1_xccqg")]
+[node name="Player" parent="." instance=ExtResource("1_xccqg")]
 position = Vector2(188, 76)
-inventory_in_game = NodePath("../CanvasLayer/InventoryInGame")
 turn_actor_resource = SubResource("Resource_spru7")
 
 [node name="Enemy" parent="." instance=ExtResource("2_5lj7b")]
@@ -59,6 +50,3 @@ turn_actor_resource = SubResource("Resource_tm7am")
 [node name="TurnBasedMovement" parent="." instance=ExtResource("5_fafho")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="InventoryInGame" parent="CanvasLayer" instance=ExtResource("5_yntmr")]
-inventory = SubResource("Resource_v20b2")

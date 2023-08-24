@@ -19,7 +19,7 @@ func Physics_update(_delta):
 			if collider is Node:
 				var node_owner = collider.owner
 				if node_owner is Player:
-					var damage = BattleHelper.enemy_attack(node_owner.player_resource, actor.enemy_resource)
+					var damage = BattleHelper.enemy_attack(actor.enemy_resource)
 					attack_movement.execute_attack(direction, node_owner, damage)
 					return
 		

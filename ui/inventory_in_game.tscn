@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfh1whnls0piw"]
+[gd_scene load_steps=2 format=3 uid="uid://pnx1524bvbk4"]
 
-[ext_resource type="Script" path="res://ui/inventory_in_game.gd" id="1_41eqv"]
+[sub_resource type="GDScript" id="GDScript_41f76"]
+script/source = "extends Control
+class_name InventoryInGame
+
+@onready var total_weight_label = %TotalWeightLabel
+
+@export var inventory: Inventory
+		
+func _ready():
+	total_weight_label.text = String.num(total_weight())
+
+func on_collect_crystal(crystal: CrystalResource) -> void:
+	if inventory.crystals.has(crystal.name):
+		inventory.crystals[crystal.name] += 1
+	else:
+		inventory.crystals[crystal.name] = 1
+		
+	total_weight_label.text = String.num(total_weight())
+	
+func on_use_potion() -> void:
+	total_weight_label.text = String.num(total_weight())
+
+func total_weight() -> int:
+	return 0
+"
 
 [node name="InventoryInGame" type="Control"]
 layout_mode = 3
@@ -9,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_41eqv")
+script = SubResource("GDScript_41f76")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -18,6 +18,7 @@ const crystals: Dictionary = {
 signal updated_inventory()
 
 var in_game_potions: Dictionary = {}
+var potions_used: Dictionary = {}
 
 func _ready():
 	inventory = initial_inventory
@@ -36,3 +37,12 @@ func craft_potion(potion_resource: PotionResource) -> void:
 		
 	updated_inventory.emit()
 	print(inventory.crystals, inventory.potions)
+	
+func collect_crystal(crystal_resource: CrystalResource) -> void:
+	if inventory.crystals.has(crystal_resource.name):
+		inventory.crystals[crystal_resource.name] += 1
+	else:
+		inventory.crystals[crystal_resource.name] = 1
+
+func on_use_potion(potion: PotionResource) -> void:
+	pass

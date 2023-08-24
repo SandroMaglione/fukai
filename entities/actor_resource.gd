@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerResource
+class_name ActorResource
 
 @export var speed: int = 1
 @export var health: int = 10

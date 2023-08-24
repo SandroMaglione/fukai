@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActorResource" load_steps=2 format=3 uid="uid://fuywf236o8q4"]
+
+[ext_resource type="Script" path="res://entities/actor_resource.gd" id="1_1te3v"]
+
+[resource]
+script = ExtResource("1_1te3v")
+speed = 1
+health = 10
+attack = 1
+defense = 1

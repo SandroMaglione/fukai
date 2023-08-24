@@ -1,10 +1,6 @@
 extends TurnActor
 class_name Player
 
-@export var player_resource: PlayerResource
-
-@export var inventory_in_game: InventoryInGame
-
 @onready var grid_movement: GridMovement = $GridMovement
 @onready var attack_movement: AttackMovement = $AttackMovement
 @onready var health_bar: HealthBar = $HealthBar
@@ -18,15 +14,15 @@ func _ready():
 	position = position.snapped(Vector2.ONE * Constants.TILE_SIZE)
 	position -= Vector2.ONE * (Constants.TILE_SIZE / 2)
 	
-	health = player_resource.health
+	health = PlayerExperience.player_stats.health
 	health_bar.init_health(health)
  
 func _process(_delta):
 	if can_move and not grid_movement.is_moving() and not attack_movement.is_attacking:
 		if Input.is_action_just_pressed("use_potion"):
-			if health < player_resource.health:
+			if health < PlayerExperience.player_stats.health:
 				health += 3
-				inventory_in_game.on_use_potion()
+				GlobalInventory.on_use_potion(null) # TODO
 		else:
 			var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			
@@ -39,7 +35,7 @@ func _process(_delta):
 					if collider is Node:
 						var node_owner = collider.owner
 						if node_owner is Enemy:
-							var damage = BattleHelper.player_attack(player_resource, node_owner.enemy_resource)
+							var damage = BattleHelper.player_attack(node_owner.enemy_resource)
 							attack_movement.execute_attack(input_direction, node_owner, damage)
 
 func _on_grid_movement_collided(body, movement):
@@ -63,7 +59,7 @@ func collect_crystal(body: TileMap, coords: Vector2i) -> void:
 		var collect_item_resource = tile_data.get_custom_data("collect_item_resource")
 		
 		if collect_item_resource is CrystalResource:
-			inventory_in_game.on_collect_crystal(collect_item_resource)
+			GlobalInventory.collect_crystal(collect_item_resource)
 			body.set_cell(Constants.CRYSTALS_LAYER_ID, coords, -1)
 
 func get_damage(damage: int) -> void:
