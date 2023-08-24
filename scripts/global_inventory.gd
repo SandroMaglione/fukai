@@ -4,6 +4,17 @@ var inventory: Inventory
 
 const initial_inventory = preload("res://scripts/instances/initial_inventory.tres")
 
+const potions: Dictionary = {
+	"health": preload("res://entities/instances/health_potion.tres"),
+	"speed": preload("res://entities/instances/speed_potion.tres")
+}
+
+const crystals: Dictionary = {
+	"red": preload("res://entities/instances/red_crystal.tres"),
+	"yellow": preload("res://entities/instances/yellow_crystal.tres"),
+	"brown": preload("res://entities/instances/brown_crystal.tres")
+}	
+
 signal updated_inventory()
 
 func _ready():

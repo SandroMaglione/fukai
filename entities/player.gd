@@ -24,7 +24,7 @@ func _ready():
 func _process(_delta):
 	if can_move and not grid_movement.is_moving() and not attack_movement.is_attacking:
 		if Input.is_action_just_pressed("use_potion"):
-			if inventory_in_game.inventory.potions > 0 and health < player_resource.health:
+			if health < player_resource.health:
 				health += 3
 				inventory_in_game.on_use_potion()
 		else:

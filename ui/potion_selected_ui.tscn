@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://diedtrim5j2u"]
+
+[ext_resource type="Script" path="res://ui/potion_selected_ui.gd" id="1_3a24b"]
+[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_hwkxe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_elcwq"]
+line_spacing = 2.08165e-12
+font_size = 8
+
+[node name="PotionSelectedUI" type="Panel"]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3a24b")
+
+[node name="UnselectPotion" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UnselectPotion"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hwkxe")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PotionQuantity" type="Label" parent="UnselectPotion"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "x10"
+label_settings = SubResource("LabelSettings_elcwq")
+horizontal_alignment = 2
+
+[connection signal="pressed" from="UnselectPotion" to="." method="_on_unselect_potion_pressed"]

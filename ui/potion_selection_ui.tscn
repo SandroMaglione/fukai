@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://g2pp4f7j1hbe"]
+
+[ext_resource type="Texture2D" uid="uid://crg7ddqi8kjkj" path="res://assets/sprites/player-sprite.png" id="1_gyo3u"]
+[ext_resource type="Script" path="res://ui/potion_selection_ui.gd" id="1_m47nr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxa48"]
+line_spacing = 2.08165e-12
+font_size = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_i8ych"]
+line_spacing = 2.08165e-12
+font_size = 6
+
+[node name="PotionSelectionUI" type="Panel"]
+custom_minimum_size = Vector2(40, 60)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_m47nr")
+
+[node name="PotionSelectionButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PotionSelectionButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PotionSelectionButton/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+texture = ExtResource("1_gyo3u")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PotionSelectionButton/VBoxContainer"]
+layout_mode = 2
+text = "Some description of the craft"
+label_settings = SubResource("LabelSettings_fxa48")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PotionQuantity" type="Label" parent="PotionSelectionButton/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x10"
+label_settings = SubResource("LabelSettings_i8ych")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="PotionSelectionButton" to="." method="_on_potion_selection_button_pressed"]
