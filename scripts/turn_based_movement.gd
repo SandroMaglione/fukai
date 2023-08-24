@@ -26,7 +26,9 @@ func choose_next_turn() -> void:
 			actor.next_turn_counter += actor.enemy_resource.speed
 	
 	var player = get_player()
-	if player.next_turn_counter > next_turn_counter_total:
+	var enemies = get_enemies()
+	var all_defeated = enemies.all(func(enemy): return enemy.health <= 0)
+	if enemies.size() == 0 or all_defeated or player.next_turn_counter > next_turn_counter_total:
 		player.can_move = true
 	else:
 		var enemies_to_move = get_enemies()
