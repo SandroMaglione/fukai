@@ -1,9 +1,9 @@
-extends Panel
+extends NinePatchRect
 class_name PotionCraftUI
 
-@onready var potion_quantity = %PotionQuantity
 @onready var crystal_requirements_list = %CrystalRequirementsList
 @onready var potion_texture = %PotionTexture
+@onready var potion_quantity_label = %PotionQuantityLabel
 
 const crystal_ui = preload("res://ui/crystal_ui.tscn")
 
@@ -15,7 +15,7 @@ var potion_resource: PotionResource:
 
 var potion_quantity_value: int = 0:
 	set(value):
-		potion_quantity.text = "x%s" % [value]
+		potion_quantity_label.text = "x%d" % [value]
 		potion_quantity_value = value
 
 

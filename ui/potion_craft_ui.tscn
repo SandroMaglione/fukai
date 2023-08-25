@@ -1,19 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0w7iu8pa867p"]
 
+[ext_resource type="Texture2D" uid="uid://csxvvcwicws67" path="res://assets/dialog-sprite.png" id="1_1rq2f"]
 [ext_resource type="Script" path="res://ui/potion_craft_ui.gd" id="1_ya43p"]
 [ext_resource type="Texture2D" uid="uid://bavotslyxvt2d" path="res://entities/potion-16x16.png" id="2_ncn8r"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yul5i"]
-bg_color = Color(0.839216, 0.509804, 0.184314, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_uhppf"]
+[sub_resource type="LabelSettings" id="LabelSettings_u8cfb"]
 line_spacing = 2.08165e-12
-font_size = 3
+font_size = 8
 
-[node name="PotionCraftUI" type="Panel"]
-custom_minimum_size = Vector2(40, 60)
+[node name="PotionCraftUI" type="NinePatchRect"]
+custom_minimum_size = Vector2(40, 75)
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_yul5i")
+texture = ExtResource("1_1rq2f")
 script = ExtResource("1_ya43p")
 
 [node name="PotionSelectButton" type="Button" parent="."]
@@ -24,15 +22,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PotionSelectButton"]
+[node name="MarginContainer" type="MarginContainer" parent="PotionSelectButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="PotionTexture" type="TextureRect" parent="PotionSelectButton/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PotionSelectButton/MarginContainer"]
+layout_mode = 2
+
+[node name="PotionTexture" type="TextureRect" parent="PotionSelectButton/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 30)
 layout_mode = 2
@@ -40,21 +45,18 @@ texture = ExtResource("2_ncn8r")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="PotionQuantity" type="Label" parent="PotionSelectButton/VBoxContainer"]
+[node name="PotionQuantityLabel" type="Label" parent="PotionSelectButton/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+text = "x0
+"
+label_settings = SubResource("LabelSettings_u8cfb")
+horizontal_alignment = 1
+
+[node name="CrystalRequirementsList" type="HBoxContainer" parent="PotionSelectButton/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 4
-text = "Recover back +10 health"
-label_settings = SubResource("LabelSettings_uhppf")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="CrystalRequirementsList" type="HBoxContainer" parent="PotionSelectButton/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 10
 alignment = 1
 
 [connection signal="pressed" from="PotionSelectButton" to="." method="_on_potion_select_button_pressed"]

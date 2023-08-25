@@ -101,7 +101,7 @@ func _total_space_occupied() -> int:
 	var space: int = 0
 	for potion in potions_inventory:
 		var potion_resource: PotionResource = GlobalInventory.potions[potion]
-		space += potions_inventory[potion] * potion_resource.weight
+		space += potions_inventory[potion]
 	return space
 	
 func _update_space_available() -> void:

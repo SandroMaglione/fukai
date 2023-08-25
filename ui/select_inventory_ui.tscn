@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b17m27fg3h8c6"]
+[gd_scene load_steps=5 format=3 uid="uid://b17m27fg3h8c6"]
 
 [ext_resource type="Script" path="res://ui/select_inventory_ui.gd" id="1_iy7ul"]
+[ext_resource type="PackedScene" uid="uid://be1hhltnnn8t4" path="res://ui/ui_layout.tscn" id="2_ju77o"]
 [ext_resource type="LabelSettings" uid="uid://cv6uwec08n7wv" path="res://ui/label_settings.tres" id="2_w14rt"]
 [ext_resource type="Theme" uid="uid://cx4nm0v50pnml" path="res://ui/default_theme.tres" id="3_aph4n"]
 
@@ -13,74 +14,65 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iy7ul")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="UILayout" parent="." instance=ExtResource("2_ju77o")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayout"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+size_flags_vertical = 3
+theme_override_constants/separation = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UILayout/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="PotionsAvailableList" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="PotionsAvailableList" type="GridContainer" parent="UILayout/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-columns = 5
+columns = 4
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="UILayout/VBoxContainer"]
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="PotionsSelectedList" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer2"]
+[node name="PotionsSelectedList" type="HBoxContainer" parent="UILayout/VBoxContainer/ScrollContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="SpaceAvailableLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="SpaceAvailableLabel" type="Label" parent="UILayout/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0 space available"
 label_settings = ExtResource("2_w14rt")
 
-[node name="HFlowContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HFlowContainer" type="HBoxContainer" parent="UILayout/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="CraftPotionsButton" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer"]
+[node name="CraftPotionsButton" type="Button" parent="UILayout/VBoxContainer/HFlowContainer"]
 custom_minimum_size = Vector2(80, 2.08165e-12)
 layout_mode = 2
 theme = ExtResource("3_aph4n")
 theme_override_font_sizes/font_size = 6
 text = "Craft potions"
 
-[node name="PlayerStatsButton" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(80, 2.08165e-12)
-layout_mode = 2
-theme_override_font_sizes/font_size = 6
-text = "Player stats"
-
-[node name="EnterDungeonButton" type="Button" parent="MarginContainer/VBoxContainer/HFlowContainer"]
+[node name="EnterDungeonButton" type="Button" parent="UILayout/VBoxContainer/HFlowContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
 text = "Enter dungeon"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HFlowContainer/CraftPotionsButton" to="." method="_on_craft_potions_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HFlowContainer/PlayerStatsButton" to="." method="_on_player_stats_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HFlowContainer/EnterDungeonButton" to="." method="_on_enter_dungeon_button_pressed"]
+[connection signal="pressed" from="UILayout/VBoxContainer/HFlowContainer/CraftPotionsButton" to="." method="_on_craft_potions_button_pressed"]
+[connection signal="pressed" from="UILayout/VBoxContainer/HFlowContainer/EnterDungeonButton" to="." method="_on_enter_dungeon_button_pressed"]

@@ -4,4 +4,3 @@
 
 [resource]
 default_font = ExtResource("1_ytbpg")
-Button/fonts/font = ExtResource("1_ytbpg")

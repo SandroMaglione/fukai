@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://diedtrim5j2u"]
+[gd_scene load_steps=5 format=3 uid="uid://diedtrim5j2u"]
 
 [ext_resource type="Script" path="res://ui/potion_selected_ui.gd" id="1_3a24b"]
+[ext_resource type="Texture2D" uid="uid://csxvvcwicws67" path="res://assets/dialog-sprite.png" id="1_h7pa2"]
 [ext_resource type="Texture2D" uid="uid://bavotslyxvt2d" path="res://entities/potion-16x16.png" id="2_ogf30"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_elcwq"]
 line_spacing = 2.08165e-12
 font_size = 8
 
-[node name="PotionSelectedUI" type="Panel"]
+[node name="PotionSelectedUI" type="NinePatchRect"]
 custom_minimum_size = Vector2(20, 20)
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("1_h7pa2")
 script = ExtResource("1_3a24b")
 
 [node name="UnselectPotion" type="Button" parent="."]
@@ -21,27 +23,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PotionTexture" type="TextureRect" parent="UnselectPotion"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="UnselectPotion"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PotionTexture" type="TextureRect" parent="UnselectPotion/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 texture = ExtResource("2_ogf30")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="PotionQuantity" type="Label" parent="UnselectPotion"]
+[node name="PotionQuantity" type="Label" parent="UnselectPotion/MarginContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
+layout_mode = 2
+size_flags_vertical = 1
 text = "x10"
 label_settings = SubResource("LabelSettings_elcwq")
 horizontal_alignment = 2

@@ -4,7 +4,6 @@ class_name Player
 @onready var grid_movement: GridMovement = $GridMovement
 @onready var attack_movement: AttackMovement = $AttackMovement
 @onready var health_bar: HealthBar = $HealthBar
-@onready var animated_sprite_2d = $AnimatedSprite2D
 
 var health: int:
 	set(value):
@@ -26,19 +25,6 @@ func _process(_delta):
 				GlobalInventory.on_use_potion(null) # TODO
 		else:
 			var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-			if input_direction == Vector2.DOWN:
-				animated_sprite_2d.animation = "walk_down"
-			elif input_direction == Vector2.LEFT:
-				animated_sprite_2d.flip_h = false
-				animated_sprite_2d.animation = "idle_left"
-			elif input_direction == Vector2.RIGHT:
-				animated_sprite_2d.flip_h = true
-				animated_sprite_2d.animation = "idle_left"
-			else:
-				if animated_sprite_2d.animation.ends_with("_left"):
-					animated_sprite_2d.animation = "idle_left"
-				else:
-					animated_sprite_2d.animation = "idle"
 			
 			if input_direction.length() != 0:
 				var collider = grid_movement.move(input_direction)

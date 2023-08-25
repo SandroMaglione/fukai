@@ -238,18 +238,18 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 ### Art
 16x16 pixel art.
 
-- [ ] Crystal (+ animation)
-- [ ] Potion 
-- [ ] Player (+ animations)
-- [ ] Enemies (more than one, + animation)
+- [x] Crystal (+ animation)
+- [x] Potion 
+- [x] Player (+ animations)
+- [x] Enemies (more than one, + animation)
+- [x] Tilemap
+  - Ground tiles with player controls input
+- [x] Dialog
+- [x] Font
 - [ ] Player health icon
 - [ ] Player speed icon
 - [ ] Player attack icon
 - [ ] Player defense icon
-- [ ] Tilemap
-  - Ground tiles with player controls input
-- [ ] Dialog
-- [ ] Font
 
 ### Roadmap
 - [x] Player and `Enemies` movement (4 directions)

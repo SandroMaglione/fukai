@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://ykgm2mu1vo0o"]
+[gd_scene load_steps=13 format=3 uid="uid://ykgm2mu1vo0o"]
 
 [ext_resource type="Script" path="res://entities/enemy.gd" id="1_pv75r"]
+[ext_resource type="Texture2D" uid="uid://dchi4558yw37u" path="res://entities/player-simple-16x16.png" id="2_5ean2"]
 [ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="2_11sgw"]
-[ext_resource type="Texture2D" uid="uid://beg1n23vchi24" path="res://entities/player-16x16.png" id="2_riwy1"]
 [ext_resource type="Script" path="res://entities/roaming_enemy_movement.gd" id="3_e2tlr"]
 [ext_resource type="Script" path="res://entities/chase_enemy_movement.gd" id="4_fykiq"]
 [ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_h00yb"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_ir2dp"]
+[ext_resource type="Texture2D" uid="uid://pomir6q5klc1" path="res://entities/shadow-16x16.png" id="6_dsor7"]
 [ext_resource type="PackedScene" uid="uid://csmpgwmie1h1x" path="res://ui/health_bar.tscn" id="8_iqef8"]
 [ext_resource type="Script" path="res://entities/player_pathfinding.gd" id="9_e85ix"]
 
@@ -14,7 +15,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_riwy1")
+"texture": ExtResource("2_5ean2")
 }],
 "loop": true,
 "name": &"default",
@@ -28,20 +29,28 @@ size = Vector2(16, 16)
 script = ExtResource("1_pv75r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.67451, 0.156863, 0.278431, 1)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_e10k4")
 
 [node name="GridMovement" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("2_11sgw")]
 collision_mask = 51
 actor = NodePath("..")
-speed = 0.15
+speed = 0.075
 
 [node name="AttackMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("4_h00yb")
 actor = NodePath("..")
+speed = 0.1
 
 [node name="PlayerPathfinding" type="Node" parent="."]
 script = ExtResource("9_e85ix")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.239216)
+position = Vector2(2.08165e-12, 1)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dsor7")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16

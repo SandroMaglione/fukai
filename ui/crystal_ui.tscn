@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://e62u4323kgmu"]
+[gd_scene load_steps=4 format=3 uid="uid://e62u4323kgmu"]
 
 [ext_resource type="Script" path="res://ui/crystal_ui.gd" id="1_0ssru"]
 [ext_resource type="Texture2D" uid="uid://cc8xw3xl2msux" path="res://assets/crystal-16x16.png" id="2_o5yml"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2unfo"]
+line_spacing = 2.08165e-12
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
 
 [node name="CrystalUI" type="Control"]
 custom_minimum_size = Vector2(20, 20)
@@ -32,4 +38,5 @@ offset_bottom = 16.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 5
 text = "x10"
+label_settings = SubResource("LabelSettings_2unfo")
 horizontal_alignment = 2
