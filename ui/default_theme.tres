@@ -1,6 +1,3 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cx4nm0v50pnml"]
-
-[ext_resource type="FontFile" uid="uid://5cw368x4p5v0" path="res://assets/fonts/type_writer.ttf" id="1_ytbpg"]
+[gd_resource type="Theme" format=3 uid="uid://cx4nm0v50pnml"]
 
 [resource]
-default_font = ExtResource("1_ytbpg")

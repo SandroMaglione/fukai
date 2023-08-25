@@ -4,17 +4,17 @@ var inventory: Inventory
 
 const initial_inventory = preload("res://scripts/instances/initial_inventory.tres")
 
-const potions: Dictionary = {
-	"health": preload("res://entities/instances/health_potion.tres"),
-	"speed": preload("res://entities/instances/speed_potion.tres"),
-	"attack": preload("res://entities/instances/attack_potion.tres"),
-	"defense": preload("res://entities/instances/defense_potion.tres")
+var potions: Dictionary = {
+	"health": load("res://entities/instances/health_potion.tres"),
+	"speed": load("res://entities/instances/speed_potion.tres"),
+	"attack": load("res://entities/instances/attack_potion.tres"),
+	"defense": load("res://entities/instances/defense_potion.tres")
 }
 
-const crystals: Dictionary = {
-	"red": preload("res://entities/instances/red_crystal.tres"),
-	"yellow": preload("res://entities/instances/yellow_crystal.tres"),
-	"brown": preload("res://entities/instances/brown_crystal.tres")
+var crystals: Dictionary = {
+	"red": load("res://entities/instances/red_crystal.tres"),
+	"yellow": load("res://entities/instances/yellow_crystal.tres"),
+	"brown": load("res://entities/instances/brown_crystal.tres")
 }	
 
 signal updated_inventory()
@@ -58,3 +58,6 @@ func on_use_potion(potion: PotionResource) -> void:
 			in_game_potions.erase(potion.name)
 		else:
 			in_game_potions[potion.name] -= 1
+
+func get_crystal(name: String) -> CrystalResource:
+	return crystals[name]

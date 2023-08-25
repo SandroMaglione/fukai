@@ -37,6 +37,10 @@ func _init_crystals() -> void:
 		crystal_list.add_child(ui_instance)
 		inventory_crystals.append(ui_instance)
 		
+		print(GlobalInventory.crystals)
+		print(crystal)
+		print(GlobalInventory.get_crystal(crystal), GlobalInventory.get_crystal(crystal).name)
+		
 		var crystal_resource: CrystalResource = GlobalInventory.crystals[crystal]
 		ui_instance.crystal_resource = crystal_resource
 		

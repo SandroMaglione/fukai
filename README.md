@@ -297,7 +297,7 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
   - ✏️ Invisible
   - ✏️ Thunder
 - [ ] Click "esc" to leave the dungeon
-- [ ] Add indication of controls to ground tiles in first `Tier`
+- [x] Add indication of controls to ground tiles in first `Tier`
 - [ ] Add label indication in UIs to tell what to do in that screen
 - [ ] Generate dungeon based on current `Tier`
   - Spawn random `Enemy` concrete instances (based on current `Tier`)
@@ -310,5 +310,5 @@ Define a "final" `Tier`: when reached is game over (for the purpose of the Game 
 ## TODO
 - [ ] Enemies can move in the same position, since no collision is detected and they start moving at the same time
 - [ ] Enemies attacks seem to come x2 times
-- [ ] Implement attack and defense computations (add some randomness)
+- [x] Implement attack and defense computations (add some randomness)
 - [ ] Implement experience points and leveling computations

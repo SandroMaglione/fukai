@@ -100,7 +100,6 @@ func _on_potion_unselected(potion_resource: PotionResource) -> void:
 func _total_space_occupied() -> int:
 	var space: int = 0
 	for potion in potions_inventory:
-		var potion_resource: PotionResource = GlobalInventory.potions[potion]
 		space += potions_inventory[potion]
 	return space
 	

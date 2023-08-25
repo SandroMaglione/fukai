@@ -19,7 +19,7 @@ var available_skill_points: int = 10
 var current_power_up: PowerUpUsage
 
 func _ready():
-	player_stats = initial_player_actor_resource
+	player_stats = initial_player_actor_resource.duplicate()
 	
 func player_stats_power_up() -> ActorResource:
 	var actor_resource: ActorResource = player_stats.duplicate()
