@@ -4,12 +4,14 @@
 
 [resource]
 script = ExtResource("1_uod5t")
-size = 10
+size = 6
 crystals = {
 "red": 3,
 "yellow": 1
 }
 potions = {
+"attack": 1,
+"defense": 1,
 "health": 3,
 "speed": 2
 }

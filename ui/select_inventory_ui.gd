@@ -54,7 +54,7 @@ func _ready():
 	_update_space_available()
 
 func _on_potion_selected(potion_resource: PotionResource) -> void:
-	if _total_space_occupied() + potion_resource.weight <= GlobalInventory.inventory.size:
+	if _total_space_occupied() + 1 <= GlobalInventory.inventory.size:
 		if potions_inventory.has(potion_resource.name):
 			potions_inventory[potion_resource.name] += 1
 			potions_inventory_ui_list[potion_resource.name].potion_quantity_value += 1
@@ -105,7 +105,7 @@ func _total_space_occupied() -> int:
 	return space
 	
 func _update_space_available() -> void:
-	space_available_label.text = "%d out of %d" % [_total_space_occupied(), GlobalInventory.inventory.size]
+	space_available_label.text = "Selected %d out of %d potions" % [_total_space_occupied(), GlobalInventory.inventory.size]
 
 func _on_enter_dungeon_button_pressed():
 	GlobalInventory.in_game_potions = potions_inventory

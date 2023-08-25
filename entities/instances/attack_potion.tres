@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=2 format=3 uid="uid://bgn7qietrj66w"]
+
+[ext_resource type="Script" path="res://entities/potion_resource.gd" id="1_ryljc"]
+
+[resource]
+script = ExtResource("1_ryljc")
+name = "attack"
+color_modulate = Color(0.105882, 0.270588, 0.227451, 1)
+weight = 0
+description = "Inflict more damage"
+craft_requirements = {
+"brown": 2,
+"red": 1
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=2 format=3 uid="uid://da8pori6rvmbs"]
+
+[ext_resource type="Script" path="res://entities/potion_resource.gd" id="1_37ex8"]
+
+[resource]
+script = ExtResource("1_37ex8")
+name = "defense"
+color_modulate = Color(0.996078, 0.592157, 0.607843, 1)
+weight = 0
+description = "Increase defense"
+craft_requirements = {
+"brown": 2,
+"yellow": 2
+}

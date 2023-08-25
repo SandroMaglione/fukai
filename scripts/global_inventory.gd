@@ -6,7 +6,9 @@ const initial_inventory = preload("res://scripts/instances/initial_inventory.tre
 
 const potions: Dictionary = {
 	"health": preload("res://entities/instances/health_potion.tres"),
-	"speed": preload("res://entities/instances/speed_potion.tres")
+	"speed": preload("res://entities/instances/speed_potion.tres"),
+	"attack": preload("res://entities/instances/attack_potion.tres"),
+	"defense": preload("res://entities/instances/defense_potion.tres")
 }
 
 const crystals: Dictionary = {
