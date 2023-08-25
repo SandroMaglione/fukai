@@ -1,20 +1,125 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq1yxk0cy8e7f"]
+[gd_scene load_steps=22 format=3 uid="uid://dq1yxk0cy8e7f"]
 
 [ext_resource type="Script" path="res://entities/player.gd" id="1_gc0gy"]
 [ext_resource type="PackedScene" uid="uid://cad2idrq7ngbn" path="res://scripts/grid_movement.tscn" id="3_c41b5"]
-[ext_resource type="Texture2D" uid="uid://beg1n23vchi24" path="res://entities/player-16x16.png" id="3_tblt5"]
+[ext_resource type="Texture2D" uid="uid://cfaraimof8jb8" path="res://entities/player-16x16-sheet.png" id="3_sgsq5"]
 [ext_resource type="Script" path="res://scripts/attack_movement.gd" id="4_owa55"]
 [ext_resource type="PackedScene" uid="uid://csmpgwmie1h1x" path="res://ui/health_bar.tscn" id="6_0n600"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oppay"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45tl"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_totof"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdmwk"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmwsr"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kl2h"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gudum"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v71y5"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrnvb"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifpft"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dswi2"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpbs1"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydckq"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66kba"]
+atlas = ExtResource("3_sgsq5")
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x48ov"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tblt5")
+"texture": SubResource("AtlasTexture_oppay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_totof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdmwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmwsr")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kl2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gudum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v71y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrnvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifpft")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dswi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpbs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydckq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66kba")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dar3l"]
@@ -40,6 +145,10 @@ actor = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x48ov")
+animation = &"idle_left"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.32354
 
 [node name="AttackMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("4_owa55")
